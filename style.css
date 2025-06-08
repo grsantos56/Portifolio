@@ -1043,29 +1043,7 @@ span {
     }
 }
 
-/* Títulos das seções (manter o existente para .servicos-titulo-principal) */
-.servicos-titulo-principal {
-    font-size: 3.2rem;
-    margin-bottom: 2.5rem;
-    text-align: center;
-    color: var(--primaria);
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.servicos-titulo-principal::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primaria), var(--secundaria));
-    border-radius: 2px;
-}
-
-/* Serviços - Grade de Cards */
+/* Serviços */
 .servicos-conteudo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

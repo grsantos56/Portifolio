@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Inicialização do Typed.js para o texto dinâmico ---
     const typed = new Typed('.multiple-text', {
-        strings: ['UX/UI Designer', 'Desenvolvedor Fullstack', 'DevOps', 'Desenvolvedor Mobile'], // Ajustado para 'DevOps'
+        strings: ['UX/UI Designer', 'Desenvolvedor Fullstack', 'DevOps', 'Desenvolvedor Mobile'],
         typeSpeed: 75,
         backSpeed: 50,
         backDelay: 1000,
@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const navbarHeight = document.querySelector('.navbar').offsetHeight; // Obtenha a altura da navbar
-            // Ajusta a condição para considerar a altura da navbar ao determinar a seção atual
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
             if (pageYOffset >= sectionTop - navbarHeight - 50) {
                 current = section.getAttribute('id');
             }
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') && link.getAttribute('href').includes(current)) { // Adicionado verificação de null/undefined
+            if (link.getAttribute('href') && link.getAttribute('href').includes(current)) {
                 link.classList.add('active');
             }
         });
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             skillCards.forEach(card => {
                 const cardCategorias = card.dataset.categorias.split(' ');
-
                 if (categoria === 'todos' || cardCategorias.includes(categoria)) {
                     card.style.display = 'flex'; // Usar flex para manter o layout de coluna
                 } else {
@@ -85,8 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Funcionalidade da Modal de Detalhes do Projeto ---
-
-    // Dados dos projetos (para preencher a modal)
     const projetosData = {
         "workshop-spring-boot": {
             titulo: "Workshop: APIs com Spring Boot",
@@ -107,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             - Boas práticas de design de API e tratamento de erros.
             <br><br>
             Este projeto demonstra a capacidade de criar soluções de backend escaláveis e bem estruturadas, fundamentais para aplicações modernas.`,
-            repositorio: "https://github.com/gabrielrodrigues-portfolio/workshop-spring-boot" // Link para o GitHub
+            repositorio: "https://github.com/gabrielrodrigues-portfolio/workshop-spring-boot"
         },
         "instalador-linux": {
             titulo: "Instalador de Aplicativos Linux",
@@ -182,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDescricaoLonga = document.getElementById('modal-descricao-longa');
     const modalRepoLink = document.getElementById('modal-repo-link');
 
-    // Event listener para todos os botões "Mais Detalhes"
     document.querySelectorAll('.btn-projeto.detalhes').forEach(button => {
         button.addEventListener('click', () => {
             const projectId = button.dataset.projetoId;
@@ -195,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalTecnologias.innerHTML = ''; // Limpa ícones anteriores
                 projeto.tecnologias.forEach(tech => {
                     const icon = document.createElement('i');
-                    icon.className = `${tech.icon} projeto-tech-icon`; // Reutiliza a classe de estilo
+                    icon.className = `${tech.icon} projeto-tech-icon`;
                     icon.title = tech.title;
                     modalTecnologias.appendChild(icon);
                 });
@@ -204,18 +199,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalRepoLink.href = projeto.repositorio;
 
                 projetoModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Evita scroll do body
+                document.body.style.overflow = 'hidden';
             }
         });
     });
 
-    // Event listener para o botão de fechar modal
     fecharModalBtn.addEventListener('click', () => {
         projetoModal.classList.remove('active');
-        document.body.style.overflow = ''; // Restaura scroll do body
+        document.body.style.overflow = '';
     });
 
-    // Fechar modal ao clicar fora do conteúdo
     window.addEventListener('click', (event) => {
         if (event.target === projetoModal) {
             projetoModal.classList.remove('active');
@@ -223,11 +216,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fechar modal ao pressionar ESC
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && projetoModal.classList.contains('active')) {
             projetoModal.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
+
+
+    // --- Animações ao Descer a Tela com Intersection Observer ---
+
+    const animateElements = document.querySelectorAll('.animate__animated');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // 10% visível para disparar
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Se o elemento está na viewport
+                entry.target.style.opacity = '1'; // Garante que a opacidade esteja em 1
+                entry.target.style.visibility = 'visible'; // Garante visibilidade
+                entry.target.classList.add(entry.target.dataset.animationClass || 'animate__fadeInUp'); // Adiciona a classe de animação
+                observer.unobserve(entry.target); // Para de observar após animar uma vez
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    animateElements.forEach(element => {
+        const animationClass = Array.from(element.classList).find(cls => cls.startsWith('animate__') && cls !== 'animate__animated' && !cls.startsWith('animate__delay'));
+        if (animationClass) {
+            element.dataset.animationClass = animationClass;
+            element.classList.remove(animationClass); // Remove a classe de animação inicial
+        }
+        // Garante que elementos animados estejam inicialmente invisíveis
+        element.style.opacity = '0';
+        element.style.visibility = 'hidden';
+        
+        observer.observe(element);
+    });
+
 });

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
         <nav class="navbar">
@@ -21,32 +22,32 @@
         </nav>
 
         <main id="inicio" class="cabecalho">
-            <div class="home-img">
+            <div class="home-img animate__animated animate__zoomIn">
                 <img src="img/one piecee.png" alt="foto de perfil" />
             </div>
 
             <div class="conteudo-apresentacao">
-                <h3>Olá, meu nome é</h3>
-                <h1>Gabriel Rodrigues</h1>
-                <h3>Eu sou <span class="multiple-text"></span></h3>
-                <p>
+                <h3 class="animate__animated animate__fadeInUp">Olá, meu nome é</h3>
+                <h1 class="animate__animated animate__fadeInUp animate__delay-0-5s">Gabriel Rodrigues</h1>
+                <h3 class="animate__animated animate__fadeInUp animate__delay-1s">Eu sou <span class="multiple-text"></span></h3>
+                <p class="animate__animated animate__fadeInUp animate__delay-1-5s">
                     Sou um desenvolvedor fullstack com experiência em criar aplicações web e mobile.
                 </p>
 
-                <div class="social-media">
+                <div class="social-media animate__animated animate__fadeInUp animate__delay-2s">
                     <a href="#"><i class="bx bxl-whatsapp"></i></a>
                     <a href="#"><i class="bx bxl-github"></i></a>
                     <a href="#"><i class="bx bxl-instagram"></i></a>
                     <a href="#"><i class="bx bxl-twitter"></i></a>
                     <a href="#"><i class="bx bxl-linkedin"></i></a>
                 </div>
-                <a href="#" class="btn">Veja meu currículo</a>
+                <a href="#" class="btn animate__animated animate__fadeInUp animate__delay-2-5s">Veja meu currículo</a>
             </div>
         </main>
 
        <section class="sobre" id="sobre">
-            <h2 class="sobre-titulo-personalizado-fora-quadro">Sobre</h2>
-            <div class="sobre-quadro">
+            <h2 class="sobre-titulo-personalizado-fora-quadro animate__animated animate__fadeInUp">Sobre</h2>
+            <div class="sobre-quadro animate__animated animate__zoomIn">
                 <h2 class="sobre-titulo-personalizado">Muito prazer, <span class="sobre-titulo-destaque">eu sou Gabriel!</span></h2>
                 <p class="sobre-texto">
                     Sou um <span style="color: var(--secundaria); font-weight: 600;">dev apaixonado por criar experiências digitais</span> que unem tecnologia, design e propósito. Minha missão é transformar ideias em soluções que encantam e resolvem problemas de verdade.
@@ -67,9 +68,9 @@
         </section>
 
         <section id="skills" class="skills">
-            <h2 class="skills-titulo">Skills</h2>
+            <h2 class="skills-titulo animate__animated animate__fadeInUp">Skills</h2>
 
-            <div class="skills-filtros">
+            <div class="skills-filtros animate__animated animate__fadeInUp animate__delay-0-5s">
                 <button class="filtro-btn active" data-categoria="todos">Todos</button>
                 <button class="filtro-btn" data-categoria="backend">Backend</button>
                 <button class="filtro-btn" data-categoria="frontend">Frontend</button>
@@ -78,7 +79,7 @@
             </div>
 
             <div class="skills-grade">
-                <div class="skill-card" data-categorias="frontend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="frontend">
                     <div class="skill-header">
                         <i class='bx bxl-react skill-icon'></i>
                         <h3 class="skill-name">React.js</h3>
@@ -92,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
                         <i class='bx bxl-django skill-icon'></i>
                         <h3 class="skill-name">Django</h3>
@@ -106,7 +107,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
                         <i class='bx bx-plus-circle skill-icon'></i> <h3 class="skill-name">REST APIs</h3>
                     </div>
@@ -119,9 +120,9 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="banco-de-dados">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="banco-de-dados">
                     <div class="skill-header">
-                        <i class='bx bxs-data skill-icon'></i> <h3 class="skill-name">MySQL</h3>
+                        <i class='devicon-mysql-plain colored skill-icon'></i> <h3 class="skill-name">MySQL</h3>
                     </div>
                     <div class="skill-details">
                         <span class="skill-percentage">90%</span>
@@ -131,9 +132,9 @@
                         <p class="skill-description">Proficiência</p>
                     </div>
                 </div>
-                <div class="skill-card" data-categorias="banco-de-dados">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="banco-de-dados">
                     <div class="skill-header">
-                        <i class='bx bxs-data skill-icon'></i> <h3 class="skill-name">PostgreSQL</h3>
+                        <i class='devicon-postgresql-plain colored skill-icon'></i> <h3 class="skill-name">PostgreSQL</h3>
                     </div>
                     <div class="skill-details">
                         <span class="skill-percentage">85%</span>
@@ -144,7 +145,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
                         <i class='bx bxl-java skill-icon'></i>
                         <h3 class="skill-name">Java</h3>
@@ -158,9 +159,9 @@
                     </div>
                 </div>
 
-                 <div class="skill-card" data-categorias="backend">
+                 <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
-                        <i class='bx bxl-spring-boot skill-icon'></i>
+                        <i class='devicon-spring-plain colored skill-icon'></i>
                         <h3 class="skill-name">Spring Boot</h3>
                     </div>
                     <div class="skill-details">
@@ -172,7 +173,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
                         <i class='bx bxl-nodejs skill-icon'></i>
                         <h3 class="skill-name">Node.js</h3>
@@ -186,7 +187,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
                     <div class="skill-header">
                         <i class='bx bxl-python skill-icon'></i>
                         <h3 class="skill-name">Python</h3>
@@ -200,7 +201,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="ui-ux-design">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="ui-ux-design">
                     <div class="skill-header">
                         <i class='bx bxl-figma skill-icon'></i>
                         <h3 class="skill-name">Figma</h3>
@@ -214,7 +215,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="frontend backend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="frontend backend">
                     <div class="skill-header">
                         <i class='bx bxl-javascript skill-icon'></i>
                         <h3 class="skill-name">JavaScript</h3>
@@ -228,7 +229,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card" data-categorias="frontend">
+                <div class="skill-card animate__animated animate__zoomIn" data-categorias="frontend">
                     <div class="skill-header">
                         <i class='bx bxl-tailwind-css skill-icon'></i>
                         <h3 class="skill-name">Tailwind</h3>
@@ -244,8 +245,8 @@
 
                 </div>
 
-            <h3 class="skills-subtitulo">Habilidades adicionais</h3>
-            <div class="habilidades-adicionais">
+            <h3 class="skills-subtitulo animate__animated animate__fadeInUp">Habilidades adicionais</h3>
+            <div class="habilidades-adicionais animate__animated animate__fadeInUp animate__delay-0-5s">
                 <span class="extra-tag">Git</span>
                 <span class="extra-tag">Docker</span>
                 <span class="extra-tag">Kubernets</span>
@@ -259,10 +260,10 @@
         </section>
 
         <section id="projetos" class="projetos">
-            <h2 class="projetos-titulo">Projetos</h2>
+            <h2 class="projetos-titulo animate__animated animate__fadeInUp">Projetos</h2>
             <div class="projetos-conteudo">
 
-                <div class="projeto-card">
+                <div class="projeto-card animate__animated animate__fadeInUp">
                     <img src="img/one piecee.png" alt="Imagem do Projeto: Workshop Spring Boot" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Workshop: APIs com Spring Boot</h3>
@@ -282,7 +283,7 @@
                     </div>
                 </div>
 
-                <div class="projeto-card">
+                <div class="projeto-card animate__animated animate__fadeInUp">
                     <img src="img/one piecee.png" alt="Imagem do Projeto: Instalador Linux" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Instalador de Aplicativos Linux</h3>
@@ -302,7 +303,7 @@
                     </div>
                 </div>
 
-                <div class="projeto-card">
+                <div class="projeto-card animate__animated animate__fadeInUp">
                     <img src="img/one piecee.png" alt="Imagem do Projeto: Gerenciador de Tarefas" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Gerenciador de Tarefas (Fullstack)</h3>
@@ -322,7 +323,7 @@
                     </div>
                 </div>
 
-                <div class="projeto-card">
+                <div class="projeto-card animate__animated animate__fadeInUp">
                     <img src="img/one piecee.png" alt="Imagem do Projeto: Site de Games" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Game Hub: Portal de Descrição de Games</h3>
@@ -359,19 +360,19 @@
         </div>
 
         <section id="servicos" class="servicos-section">
-            <h2 class="servicos-titulo-principal">Serviços</h2>
+            <h2 class="servicos-titulo-principal animate__animated animate__fadeInUp">Serviços</h2>
             <div class="servicos-conteudo">
-                <div class="servico">
+                <div class="servico animate__animated animate__zoomIn">
                     <i class='bx bx-code-alt servicos-icon' title="Desenvolvimento Fullstack"></i>
                     <h3 class="servicos-titulo">Desenvolvimento Fullstack</h3>
                     <p class="servicos-descricao">Criação de aplicações web completas, desde a interface de usuário (frontend) até a lógica de negócios e banco de dados (backend), garantindo soluções integradas e de alta performance.</p>
                 </div>
-                <div class="servico">
+                <div class="servico animate__animated animate__zoomIn">
                     <i class='bx bx-cloud-upload servicos-icon' title="DevOps"></i>
                     <h3 class="servicos-titulo">DevOps</h3>
                     <p class="servicos-descricao">Implementação de práticas e ferramentas de DevOps para otimizar o ciclo de vida do desenvolvimento de software, incluindo automação de CI/CD, gerenciamento de infraestrutura e monitoramento.</p>
                 </div>
-                <div class="servico">
+                <div class="servico animate__animated animate__zoomIn">
                     <i class='bx bx-mobile-alt servicos-icon' title="Desenvolvimento Mobile"></i>
                     <h3 class="servicos-titulo">Desenvolvimento Mobile</h3>
                     <p class="servicos-descricao">Desenvolvimento de aplicativos móveis nativos (Android/iOS) e/ou híbridos, focando em usabilidade, performance e experiência do usuário em diferentes dispositivos.</p>
@@ -380,15 +381,15 @@
         </section>
 
         <section id="contatos" class="contatos">
-            <h2 class="contatos-titulo">Contato</h2>
-            <div class="contatos-conteudo">
+            <h2 class="contatos-titulo animate__animated animate__fadeInUp">Contato</h2>
+            <div class="contatos-conteudo animate__animated animate__fadeInUp animate__delay-0-5s">
                 <p class="contatos-texto">Você pode me encontrar nas seguintes redes sociais ou entrar em contato diretamente:</p>
                 <div class="contatos-sociais">
                     <a href="#" class="contato-link"><i class="bx bxl-linkedin"></i> LinkedIn</a>
                     <a href="#" class="contato-link"><i class="bx bxl-github"></i> GitHub</a>
-                    <a href="#" class="contato-link"><i class="bx bxl-whatsapp"></i> Whatsapp</a>
+                    <a href="#" class="contato-link"><i class="bx bxl-twitter"></i> Twitter</a>
                     <a href="#" class="contato-link"><i class="bx bxl-instagram"></i> Instagram</a>
-                    <a href="mailto:gabrielrsantos999@gmail.com" class="contato-link"><i class="bx bx-envelope"></i> E-mail</a>
+                    <a href="mailto:seuemail@example.com" class="contato-link"><i class="bx bx-envelope"></i> E-mail</a>
                 </div>
             </div>
         </section>
