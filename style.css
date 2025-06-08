@@ -1170,7 +1170,7 @@ span {
 
 .contatos-texto {
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
 }
 
@@ -1212,7 +1212,7 @@ span {
     padding: 2rem;
     background: var(--escuro);
     border-top: 1px solid var(--vidro);
-    margin-top: 3rem;
+    margin-top: -5rem;
     font-size: 1.3rem;
     color: var(--claro);
     box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
