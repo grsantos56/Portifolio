@@ -1,15 +1,16 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa Typed.js para o texto dinâmico
+
+    // --- Inicialização do Typed.js para o texto dinâmico ---
     const typed = new Typed('.multiple-text', {
-        strings: ['UX/UI Designer', 'Desenvolvedor Fullstack', 'Devops', 'Desenvolvedor Mobile', ], // Lista de textos a serem digitados
-        typeSpeed: 75, // Velocidade de digitação
-        backSpeed: 50, // Velocidade de apagar
-        backDelay: 1000, // Atraso antes de apagar
-        loop: true // Loop infinito
+        strings: ['UX/UI Designer', 'Desenvolvedor Fullstack', 'DevOps', 'Desenvolvedor Mobile'], // Ajustado para 'DevOps'
+        typeSpeed: 75,
+        backSpeed: 50,
+        backDelay: 1000,
+        loop: true
     });
 
-    // Adiciona efeito de scroll suave para os links da navbar
+    // --- Scroll Suave para os links da navbar ---
     document.querySelectorAll('.menu-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                // Calcula a posição do topo da seção, subtraindo a altura da navbar
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const offsetTop = targetSection.offsetTop - navbarHeight;
 
@@ -30,27 +30,204 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Destaca o link ativo na navbar ao rolar a página
+    // --- Destaque do link ativo na navbar ao rolar a página ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.menu-link');
 
     window.addEventListener('scroll', () => {
         let current = '';
-
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // Considerando a altura da navbar para ativar a seção mais cedo
-            if (pageYOffset >= sectionTop - document.querySelector('.navbar').offsetHeight - 50) {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight; // Obtenha a altura da navbar
+            // Ajusta a condição para considerar a altura da navbar ao determinar a seção atual
+            if (pageYOffset >= sectionTop - navbarHeight - 50) {
                 current = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
-            link.classList.remove('active'); // Remove 'active' de todos
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active'); // Adiciona 'active' ao link da seção atual
+            link.classList.remove('active');
+            if (link.getAttribute('href') && link.getAttribute('href').includes(current)) { // Adicionado verificação de null/undefined
+                link.classList.add('active');
             }
         });
+    });
+
+    // --- Funcionalidade de Filtro de Skills ---
+    const filtroBtns = document.querySelectorAll('.filtro-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    filtroBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            filtroBtns.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const categoria = button.dataset.categoria;
+
+            skillCards.forEach(card => {
+                const cardCategorias = card.dataset.categorias.split(' ');
+
+                if (categoria === 'todos' || cardCategorias.includes(categoria)) {
+                    card.style.display = 'flex'; // Usar flex para manter o layout de coluna
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Animação inicial da barra de progresso (opcional, para ver o efeito ao carregar)
+    skillCards.forEach(card => {
+        const progressBar = card.querySelector('.progress-bar');
+        const percentage = parseInt(card.querySelector('.skill-percentage').textContent);
+        progressBar.style.width = percentage + '%';
+    });
+
+
+    // --- Funcionalidade da Modal de Detalhes do Projeto ---
+
+    // Dados dos projetos (para preencher a modal)
+    const projetosData = {
+        "workshop-spring-boot": {
+            titulo: "Workshop: APIs com Spring Boot",
+            imagem: "img/one piecee.png",
+            tecnologias: [
+                { icon: 'bx bxl-java', title: 'Java' },
+                { icon: 'devicon-spring-plain colored', title: 'Spring Boot' },
+                { icon: 'devicon-postgresql-plain colored', title: 'PostgreSQL' },
+                { icon: 'bx bx-git', title: 'Git' }
+            ],
+            descricaoLonga: `Este projeto simula um workshop de desenvolvimento de APIs RESTful utilizando Spring Boot. O objetivo foi guiar os participantes através das etapas cruciais da construção de um backend robusto, incluindo:
+            <br><br>
+            - Configuração de ambiente e inicialização do projeto Spring Boot.
+            - Definição de modelos de dados e relacionamento com banco de dados (JPA/Hibernate).
+            - Implementação de endpoints REST para operações CRUD (Criar, Ler, Atualizar, Deletar).
+            - Gerenciamento de dependências e uso de Lombok para código mais limpo.
+            - Configuração e integração com PostgreSQL para persistência de dados.
+            - Boas práticas de design de API e tratamento de erros.
+            <br><br>
+            Este projeto demonstra a capacidade de criar soluções de backend escaláveis e bem estruturadas, fundamentais para aplicações modernas.`,
+            repositorio: "https://github.com/gabrielrodrigues-portfolio/workshop-spring-boot" // Link para o GitHub
+        },
+        "instalador-linux": {
+            titulo: "Instalador de Aplicativos Linux",
+            imagem: "img/one piecee.png",
+            tecnologias: [
+                { icon: 'bx bxl-python', title: 'Python' },
+                { icon: 'bx bxl-linux', title: 'Linux' },
+                { icon: 'bx bx-terminal', title: 'Shell Script' },
+                { icon: 'bx bx-git', title: 'Git' }
+            ],
+            descricaoLonga: `Desenvolvi um script para automatizar a instalação de aplicativos e configurações essenciais em sistemas Linux, focando em distribuições baseadas em Debian (como Ubuntu). Os principais recursos incluem:
+            <br><br>
+            - Instalação de pacotes via APT (Chrome, VS Code, Git, Docker, etc.).
+            - Configuração de aliases e variáveis de ambiente no .bashrc ou .zshrc.
+            - Download e instalação de ferramentas de desenvolvimento específicas.
+            - Possibilidade de selecionar quais aplicativos instalar via menu interativo.
+            - Otimização do processo de setup para desenvolvedores e novos usuários de Linux.
+            <br><br>
+            Este projeto visa simplificar e padronizar o ambiente de trabalho em máquinas Linux, economizando tempo e minimizando erros manuais.`,
+            repositorio: "https://github.com/gabrielrodrigues-portfolio/instalador-linux"
+        },
+        "gerenciador-tarefas": {
+            titulo: "Gerenciador de Tarefas (Fullstack)",
+            imagem: "img/one piecee.png",
+            tecnologias: [
+                { icon: 'bx bxl-java', title: 'Java' },
+                { icon: 'devicon-spring-plain colored', title: 'Spring Boot' },
+                { icon: 'bx bxl-react', title: 'React' },
+                { icon: 'devicon-mysql-plain colored', title: 'MySQL' }
+            ],
+            descricaoLonga: `Um sistema fullstack completo para gerenciamento de tarefas pessoais ou em equipe. O backend foi construído com Spring Boot, fornecendo uma API RESTful para manipulação de dados de tarefas. O frontend, desenvolvido em React, oferece uma interface de usuário intuitiva e responsiva.
+            <br><br>
+            Funcionalidades incluem:
+            - Criação, leitura, atualização e exclusão (CRUD) de tarefas.
+            - Marcação de tarefas como concluídas.
+            - Filtragem de tarefas por status ou prioridade.
+            - Persistência de dados em um banco de dados MySQL.
+            - Arquitetura modular e escalável.
+            <br><br>
+            Este projeto demonstra habilidades tanto em desenvolvimento backend robusto quanto em criação de interfaces de usuário modernas e interativas.`,
+            repositorio: "https://github.com/gabrielrodrigues-portfolio/gerenciador-tarefas"
+        },
+        "site-games": {
+            titulo: "Game Hub: Portal de Descrição de Games",
+            imagem: "img/one piecee.png",
+            tecnologias: [
+                { icon: 'bx bxl-html5', title: 'HTML' },
+                { icon: 'bx bxl-css3', title: 'CSS' },
+                { icon: 'bx bxl-javascript', title: 'JavaScript' },
+                { icon: 'bx bxl-react', title: 'React' },
+                { icon: 'bx bx-data', title: 'API REST' }
+            ],
+            descricaoLonga: `O Game Hub é um portal dinâmico e responsivo dedicado à exploração de detalhes de jogos. Ele se conecta a uma API externa de games (RAWG API ou similar) para buscar e exibir informações ricas sobre milhares de títulos.
+            <br><br>
+            Características principais:
+            - Interface de usuário moderna e responsiva.
+            - Busca de jogos por nome.
+            - Exibição de detalhes do jogo: descrição, gêneros, plataformas, data de lançamento, avaliações.
+            - Navegação intuitiva entre os jogos.
+            - Frontend desenvolvido com React para uma experiência de usuário fluida.
+            <br><br>
+            Este projeto destaca minhas habilidades em integração de APIs, manipulação de dados assíncronos e construção de interfaces de usuário envolventes e interativas.`,
+            repositorio: "https://github.com/gabrielrodrigues-portfolio/site-games"
+        }
+    };
+
+    const projetoModal = document.getElementById('projeto-modal');
+    const fecharModalBtn = document.querySelector('.fechar-modal');
+    const modalImagem = document.getElementById('modal-imagem');
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalTecnologias = document.getElementById('modal-tecnologias');
+    const modalDescricaoLonga = document.getElementById('modal-descricao-longa');
+    const modalRepoLink = document.getElementById('modal-repo-link');
+
+    // Event listener para todos os botões "Mais Detalhes"
+    document.querySelectorAll('.btn-projeto.detalhes').forEach(button => {
+        button.addEventListener('click', () => {
+            const projectId = button.dataset.projetoId;
+            const projeto = projetosData[projectId];
+
+            if (projeto) {
+                modalImagem.src = projeto.imagem;
+                modalTitulo.textContent = projeto.titulo;
+                
+                modalTecnologias.innerHTML = ''; // Limpa ícones anteriores
+                projeto.tecnologias.forEach(tech => {
+                    const icon = document.createElement('i');
+                    icon.className = `${tech.icon} projeto-tech-icon`; // Reutiliza a classe de estilo
+                    icon.title = tech.title;
+                    modalTecnologias.appendChild(icon);
+                });
+
+                modalDescricaoLonga.innerHTML = projeto.descricaoLonga;
+                modalRepoLink.href = projeto.repositorio;
+
+                projetoModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Evita scroll do body
+            }
+        });
+    });
+
+    // Event listener para o botão de fechar modal
+    fecharModalBtn.addEventListener('click', () => {
+        projetoModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll do body
+    });
+
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', (event) => {
+        if (event.target === projetoModal) {
+            projetoModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Fechar modal ao pressionar ESC
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && projetoModal.classList.contains('active')) {
+            projetoModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 });

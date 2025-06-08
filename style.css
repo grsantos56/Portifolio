@@ -186,7 +186,7 @@ span {
 }
 
 /* Títulos das seções */
-.skills-titulo, .projetos-titulo, .contatos-titulo, .sobre-titulo, .servicos-titulo-principal {
+.skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
     font-size: 3.2rem;
     margin-bottom: 2.5rem;
     text-align: center;
@@ -195,7 +195,7 @@ span {
     padding-bottom: 10px;
 }
 
-.sobre-titulo-personalizado-fora-quadro::after, .skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .sobre-titulo::after, .servicos-titulo-principal::after {
+.sobre-titulo-personalizado-fora-quadro::after, .skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .servicos-titulo-principal::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -208,7 +208,7 @@ span {
 }
 
 /* Sobre mim */
-.sobre-conteudo {
+.sobre-conteudo { /* Se não estiver mais sendo usado, pode ser removido */
     max-width: 750px;
     margin: 0 auto;
     font-size: 1.6rem;
@@ -234,12 +234,33 @@ span {
     max-width: 1100px; /* Largura máxima maior */
     margin: 0 auto 4rem auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais escura e visível */
-    /* Remove backdrop-filter para ter um fundo sólido como na imagem */
     text-align: left;
     position: relative; /* Para a sombra interna, se necessário */
     overflow: hidden; /* Garante que as sombras não vazem */
-    background: linear-gradient(135deg, rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.9), ); /* Fundo com gradiente sutil */
+    background: linear-gradient(135deg, rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.9)); /* Fundo com gradiente sutil */
     
+}
+
+/* Pseudo-elementos para os gradientes nas extremidades */
+.sobre-quadro::before,
+.sobre-quadro::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    z-index: 0; /* Ajustado para 0, para que o conteúdo do quadro esteja acima */
+    pointer-events: none;
+}
+
+.sobre-quadro::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(124, 58, 237, 0.2), transparent);
+}
+
+.sobre-quadro::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(79, 70, 229, 0.2), transparent);
 }
 
 /* Título "Muito prazer, eu sou Gabriel!" */
@@ -249,6 +270,8 @@ span {
     color: var(--claro); /* Cor do texto claro */
     margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
     line-height: 1.2;
+    position: relative; /* Garante que o conteúdo interno esteja acima dos gradientes */
+    z-index: 2;
 }
 
 .sobre-titulo-destaque {
@@ -262,6 +285,8 @@ span {
     margin-bottom: 2rem; /* Mais espaço entre os parágrafos e as tags */
     color: var(--claro); /* Cor do texto principal */
     text-align: left;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -272,6 +297,8 @@ span {
     gap: 0.8rem; /* Espaçamento menor entre as tags */
     margin-top: 1.5rem; /* Espaçamento abaixo do primeiro parágrafo */
     justify-content: flex-start;
+    position: relative;
+    z-index: 2;
 }
 
 .tag {
@@ -279,11 +306,10 @@ span {
     border: 1px solid var(--primaria); /* Borda com a cor primária */
     color: var(--primaria); /* Cor do texto primária */
     padding: 0.4rem 1rem; /* Padding ajustado */
-    border-radius: 0.3rem; /* Bordas levemente arredondadas, não pílula */
+    border-radius: 25px; /* Bordas arredondadas como pílula */
     font-size: 1.2rem;
     font-weight: 400;
     transition: all 0.2s ease;
-    border-radius: 25px;
 }
 
 .tag:hover {
@@ -291,12 +317,6 @@ span {
     color: var(--claro); /* Texto claro no hover */
     transform: translateY(-2px); /* Pequeno lift no hover */
     box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); /* Sombra no hover */
-}
-
-/* Remova o estilo antigo do .sobre-titulo e .sobre-titulo::after */
-/* Ou certifique-se de que o novo .sobre-titulo-personalizado o sobrescreva */
-.sobre-titulo { /* Certifique-se de que esta regra não afete o novo título */
-   display: none; /* Esconde o título antigo se ele ainda estiver lá */
 }
 
 /* Responsividade para o quadro */
@@ -308,8 +328,7 @@ span {
     .sobre-titulo-personalizado {
         font-size: 3rem;
     }
-    .sobre-quadro .sobre-texto,
-    .sobre-quadro{
+    .sobre-quadro .sobre-texto {
         font-size: 1.4rem;
     }
     .tag {
@@ -325,8 +344,7 @@ span {
     .sobre-titulo-personalizado {
         font-size: 2.5rem;
     }
-    .sobre-quadro .sobre-texto,
-    .sobre-quadro{
+    .sobre-quadro .sobre-texto {
         font-size: 1.3rem;
     }
     .tag {
@@ -346,8 +364,7 @@ span {
     .sobre-titulo-personalizado {
         font-size: 2rem;
     }
-    .sobre-quadro .sobre-texto,
-    .sobre-quadro{
+    .sobre-quadro .sobre-texto {
         font-size: 1.2rem;
     }
     .tag {
@@ -357,145 +374,813 @@ span {
 }
 
 /* Skills */
-.skills-conteudo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
+.skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
+    font-size: 3.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--primaria);
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.skills-lista {
-    list-style: none;
+.skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .servicos-titulo-principal::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria));
+    border-radius: 2px;
+}
+
+/* Skills - Botões de Filtro */
+.skills-filtros {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1.2rem;
-    max-width: 850px;
+    margin-bottom: 3rem;
 }
 
-.skills-lista li {
-    padding: 0.9rem 2rem;
-    background: var(--vidro);
+.filtro-btn {
+    background-color: var(--escuro); /* Fundo igual ao do body */
     border: 1px solid var(--primaria);
-    border-radius: 2.5rem;
-    color: var(--claro);
+    color: var(--primaria);
+    padding: 0.8rem 1.8rem;
+    border-radius: 25px; /* Mais arredondado */
+    font-size: 1.3rem;
     font-weight: 500;
-    font-size: 1.5rem;
+    cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.skills-lista li:hover {
-    background: var(--primaria);
-    color: var(--escuro);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px var(--primaria);
+.filtro-btn:hover {
+    background-color: var(--primaria);
+    color: var(--claro);
 }
 
-/* Projetos */
-.projetos-conteudo {
+.filtro-btn.active {
+    background-color: var(--primaria);
+    color: var(--claro);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Skills - Grade de Cartões */
+.skills-grade {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 0 1.5rem;
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 2 colunas em telas maiores, 1 em menores */
+    gap: 2rem; /* Espaçamento entre os cartões */
+    max-width: 900px; /* Largura máxima para a grade */
+    margin: 0 auto; /* Centraliza a grade */
+}
+
+.skill-card {
+    background-color: #1a2233; /* Fundo ligeiramente mais claro que o --escuro */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px; /* Altura mínima para os cartões */
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px); /* Efeito de levitação no hover */
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-icon {
+    font-size: 2.8rem; /* Tamanho do ícone */
+    color: var(--primaria); /* Cor do ícone */
+    margin-right: 0.8rem;
+}
+/* Estilo para ícones Devicon, para garantir que sigam a cor do seu tema */
+.devicon-mysql-plain.colored.skill-icon,
+.devicon-postgresql-plain.colored.skill-icon,
+.devicon-spring-plain.colored.skill-icon,
+.devicon-mongodb-plain.colored.skill-icon,
+.devicon-kubernetes-plain.colored.skill-icon {
+    color: var(--primaria) !important; /* !important para sobrescrever a cor padrão 'colored' */
+}
+
+
+.skill-name {
+    font-size: 2rem;
+    color: var(--claro);
+    font-weight: 600;
+}
+
+.skill-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinha a porcentagem e barra à direita */
+}
+
+.skill-percentage {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--secundaria);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px; /* Altura da barra */
+    background-color: #2b354a; /* Cor de fundo da barra */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria)); /* Gradiente na barra */
+    border-radius: 5px;
+    transition: width 0.8s ease-in-out; /* Animação suave para a barra */
+}
+
+.skill-description {
+    font-size: 1.2rem;
+    color: var(--claro);
+    margin-top: 0.5rem;
+}
+
+/* Habilidades Adicionais */
+.skills-subtitulo {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--claro);
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.habilidades-adicionais {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.projeto {
-    background: var(--vidro);
-    padding: 1.8rem;
-    border-radius: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    text-align: center;
-    border: 1px solid rgba(79, 70, 229, 0.3);
+.extra-tag {
+    background-color: #1a2233; /* Fundo escuro */
+    border: 1px solid rgba(79, 70, 229, 0.3); /* Borda sutil */
+    color: var(--claro); /* Cor do texto */
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px; /* Bordas arredondadas */
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
 }
 
-.projeto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+.extra-tag:hover {
+    background-color: var(--primaria);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    color: var(--claro);
+}
+
+
+/* --- Responsividade da Seção Skills --- */
+@media (max-width: 992px) {
+    .skills-grade {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta para 2 colunas menores */
+    }
+    .skill-card {
+        padding: 1.2rem;
+    }
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+    .skill-name {
+        font-size: 1.8rem;
+    }
+    .skill-percentage {
+        font-size: 1.4rem;
+    }
+    .skill-description {
+        font-size: 1.1rem;
+    }
+    .filtro-btn {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.5rem;
+    }
+    .skills-subtitulo {
+        font-size: 2.2rem;
+    }
+    .extra-tag {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grade {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+        max-width: 90%; /* Ajusta a largura máxima */
+    }
+    .skills-filtros {
+        gap: 0.8rem; /* Menos espaço entre os botões */
+        margin-bottom: 2rem;
+    }
+    .filtro-btn {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    .skills-subtitulo {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+    .habilidades-adicionais {
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+    .extra-tag {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card {
+        padding: 1rem;
+    }
+    .skill-icon {
+        font-size: 2.2rem;
+    }
+    .skill-name {
+        font-size: 1.6rem;
+    }
+    .skill-percentage {
+        font-size: 1.3rem;
+    }
+    .filtro-btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    .skills-subtitulo {
+        font-size: 1.8rem;
+    }
+    .extra-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+/* Projetos */
+.projetos-titulo {
+    font-size: 3.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--primaria);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.projetos-titulo::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria));
+    border-radius: 2px;
+}
+
+/* Projetos - Grade de Cards */
+.projetos-conteudo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumenta o tamanho mínimo do card */
+    gap: 3rem; /* Aumenta o espaçamento entre os cards */
+    max-width: 1200px; /* Alarga a área dos projetos */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.projeto-card {
+    background-color: #1a2233; /* Fundo escuro similar aos cards de skill */
+    border-radius: 1rem;
+    overflow: hidden; /* Garante que a imagem não vaze dos cantos */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+    display: flex;
+    flex-direction: column; /* Conteúdo empilhado verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-8px); /* Efeito de levitação no hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Sombra mais forte no hover */
 }
 
 .projeto-imagem {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 220px; /* Altura fixa para a imagem do projeto */
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    border-bottom: 1px solid rgba(79, 70, 229, 0.2); /* Linha sutil abaixo da imagem */
+}
+
+.projeto-info {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o info ocupe o espaço restante */
+}
+
+.projeto-card-titulo {
+    font-size: 2.2rem;
+    color: var(--primaria);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.projeto-card-descricao {
+    font-size: 1.4rem;
+    color: var(--claro);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Permite que a descrição ocupe o máximo de espaço */
+}
+
+/* Ícones de tecnologias */
+.projeto-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem; /* Espaçamento entre os ícones */
+    margin-top: 1rem; /* Espaçamento acima dos ícones */
+    margin-bottom: 2rem; /* Espaçamento abaixo dos ícones e antes dos botões */
+    justify-content: flex-start; /* Alinha os ícones à esquerda */
+}
+
+.projeto-tech-icon {
+    font-size: 2.5rem; /* Tamanho dos ícones de tecnologia */
+    color: var(--secundaria); /* Cor dos ícones */
+}
+/* Ajuste de cor para Devicon para garantir que sigam sua cor de destaque */
+.devicon-postgresql-plain.colored.projeto-tech-icon,
+.devicon-mongodb-plain.colored.projeto-tech-icon,
+.devicon-kubernetes-plain.colored.projeto-tech-icon,
+.devicon-spring-plain.colored.projeto-tech-icon,
+.devicon-mysql-plain.colored.projeto-tech-icon { /* Adicionei MySQL aqui também para consistência */
+    color: var(--secundaria) !important; /* !important para sobrescrever a cor padrão 'colored' */
+}
+
+
+/* Botões do projeto */
+.projeto-botoes {
+    display: flex;
+    gap: 1rem; /* Espaçamento entre os botões */
+    margin-top: auto; /* Empurra os botões para o final do card */
+}
+
+.btn-projeto {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Evita que o texto quebre */
+}
+
+.btn-projeto.detalhes {
+    background-color: transparent;
+    border: 1px solid var(--primaria);
+    color: var(--primaria);
+}
+
+.btn-projeto.detalhes:hover {
+    background-color: var(--primaria);
+    color: var(--claro);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+}
+
+.btn-projeto.ver-projeto {
+    background-color: var(--secundaria);
+    border: 1px solid var(--secundaria);
+    color: var(--claro);
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+}
+
+.btn-projeto.ver-projeto:hover {
+    background-color: #6a34cc; /* Tom ligeiramente mais escuro do violeta */
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+/* --- Responsividade da Seção Projetos --- */
+@media (max-width: 992px) {
+    .projetos-conteudo {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta o tamanho mínimo do card */
+        gap: 2.5rem;
+        padding: 0 1.5rem;
+    }
+    .projeto-imagem {
+        height: 200px;
+    }
+    .projeto-card-titulo {
+        font-size: 2rem;
+    }
+    .projeto-card-descricao {
+        font-size: 1.3rem;
+    }
+    .projeto-tech-icon {
+        font-size: 2.2rem;
+    }
+    .btn-projeto {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projetos-conteudo {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    .projeto-imagem {
+        height: 180px;
+    }
+    .projeto-card-titulo {
+        font-size: 1.8rem;
+    }
+    .projeto-card-descricao {
+        font-size: 1.2rem;
+    }
+    .projeto-tech-icon {
+        font-size: 2rem;
+    }
+    .projeto-info {
+        padding: 1.5rem;
+    }
+    .btn-projeto {
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projetos-conteudo {
+        padding: 0 0.5rem;
+    }
+    .projeto-card {
+        margin: 0; /* Remove margem extra */
+    }
+    .projeto-imagem {
+        height: 150px;
+    }
+    .projeto-card-titulo {
+        font-size: 1.6rem;
+    }
+    .projeto-card-descricao {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .projeto-tech-icon {
+        font-size: 1.8rem;
+    }
+    .projeto-botoes {
+        flex-direction: column; /* Empilha os botões */
+        gap: 0.8rem;
+    }
+    .btn-projeto {
+        width: 100%; /* Botões ocupam largura total */
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+}
+
+/* --- Modal (Tela de Detalhes do Projeto) --- */
+.modal {
+    /* Use visibility e opacity para uma transição suave */
+    display: flex; /* Mantém flex para centralização */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Começa invisível */
+    visibility: hidden; /* Escondido e não interage com eventos */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal.active {
+    opacity: 1; /* Torna visível */
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #1a2233;
+    margin: auto;
+    padding: 2.5rem;
     border-radius: 1rem;
-    margin-bottom: 1.2rem;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+    transform: translateY(20px); /* Começa ligeiramente para baixo */
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0); /* Sobe para a posição final */
+}
+
+.fechar-modal {
+    color: var(--claro);
+    font-size: 3rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: var(--primaria);
+}
+
+.modal-imagem {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
     border: 2px solid var(--secundaria);
 }
 
-.projeto-titulo {
-    font-size: 2rem;
-    color: var(--secundaria);
-    margin-bottom: 0.8rem;
+.modal-titulo {
+    font-size: 2.8rem;
+    color: var(--primaria);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 700;
 }
 
-.projeto-descricao {
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.6;
+.modal-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
-.projeto-link {
-    display: inline-block;
-    padding: 0.7rem 1.8rem;
-    background: var(--primaria);
+.modal-tecnologias .projeto-tech-icon {
+    font-size: 3rem;
+}
+
+.modal-descricao-longa {
+    font-size: 1.5rem;
     color: var(--claro);
-    border-radius: 1.5rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.modal-links {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-modal {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--secundaria);
+    color: var(--claro);
+    border-radius: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    transition: 0.3s ease;
-    font-size: 1.3rem;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
 }
 
-.projeto-link:hover {
-    background: var(--secundaria);
-    box-shadow: 0 0 10px var(--secundaria);
+.btn-modal:hover {
+    background-color: #6a34cc;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
 }
 
-/* Serviços */
+/* --- Responsividade da Modal --- */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+    .fechar-modal {
+        font-size: 2.5rem;
+        top: 0.3rem;
+        right: 1rem;
+    }
+    .modal-imagem {
+        height: 180px;
+        margin-bottom: 1.5rem;
+    }
+    .modal-titulo {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    .modal-tecnologias .projeto-tech-icon {
+        font-size: 2.5rem;
+    }
+    .modal-descricao-longa {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    .btn-modal {
+        font-size: 1.4rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1rem;
+    }
+    .fechar-modal {
+        font-size: 2rem;
+        right: 0.5rem;
+    }
+    .modal-imagem {
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    .modal-titulo {
+        font-size: 1.8rem;
+    }
+    .modal-tecnologias {
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+    .modal-tecnologias .projeto-tech-icon {
+        font-size: 2rem;
+    }
+    .modal-descricao-longa {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .btn-modal {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.8rem;
+    }
+}
+
+/* Títulos das seções (manter o existente para .servicos-titulo-principal) */
+.servicos-titulo-principal {
+    font-size: 3.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--primaria);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.servicos-titulo-principal::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria));
+    border-radius: 2px;
+}
+
+/* Serviços - Grade de Cards */
 .servicos-conteudo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Espaçamento entre os cards */
     padding: 0 1.5rem;
     max-width: 1100px;
     margin: 0 auto;
 }
 
 .servico {
-    background: var(--vidro);
-    padding: 1.8rem;
+    background: #1a2233; /* Fundo escuro similar aos cards de skill e projeto */
+    padding: 2.5rem; /* Aumentado o padding */
     border-radius: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     text-align: center;
-    border: 1px solid rgba(124, 58, 237, 0.3);
+    border: 1px solid rgba(124, 58, 237, 0.3); /* Borda sutil */
+    min-height: 280px; /* Garante uma altura mínima para todos os cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
 }
 
 .servico:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+    transform: translateY(-8px); /* Efeito de levitação no hover */
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4); /* Sombra mais forte no hover */
 }
 
+/* Novo estilo para os Ícones de Serviço */
+.servicos-icon {
+    font-size: 5rem; /* Tamanho do ícone (aumentado para destaque) */
+    color: var(--secundaria); /* Cor do ícone */
+    margin-bottom: 1.5rem; /* Espaço abaixo do ícone */
+    display: block; /* Garante que o ícone seja um bloco para centralização */
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5)); /* Sombra para o ícone */
+}
+
+/* Remova ou comente a regra antiga de imagem de serviço */
 .servicos-imagem {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    margin-bottom: 1.2rem;
-    filter: drop-shadow(0 0 8px var(--secundaria));
+    display: none; /* Esconde a imagem antiga */
+    /* Ou remova completamente esta regra se não for mais necessária */
 }
 
 .servicos-titulo {
-    font-size: 2rem;
-    color: var(--secundaria);
-    margin-bottom: 0.8rem;
+    font-size: 2.2rem;
+    color: var(--primaria); /* Mudei para primaria para dar contraste */
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .servicos-descricao {
     font-size: 1.4rem;
+    color: var(--claro);
     line-height: 1.6;
+}
+
+/* --- Responsividade da Seção Serviços --- */
+@media (max-width: 992px) {
+    .servicos-conteudo {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    .servico {
+        padding: 2rem;
+        min-height: 260px;
+    }
+    .servicos-icon {
+        font-size: 4rem;
+        margin-bottom: 1.2rem;
+    }
+    .servicos-titulo {
+        font-size: 2rem;
+    }
+    .servicos-descricao {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .servicos-conteudo {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: 1.5rem;
+        max-width: 90%;
+    }
+    .servico {
+        padding: 1.8rem;
+        min-height: auto; /* Deixa a altura se ajustar ao conteúdo */
+    }
+    .servicos-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+    .servicos-titulo {
+        font-size: 1.8rem;
+    }
+    .servicos-descricao {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .servico {
+        padding: 1.5rem;
+    }
+    .servicos-icon {
+        font-size: 3rem;
+    }
+    .servicos-titulo {
+        font-size: 1.6rem;
+    }
+    .servicos-descricao {
+        font-size: 1.1rem;
+    }
 }
 
 /* Contatos */
@@ -615,7 +1300,7 @@ span {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
-    .skills-titulo, .projetos-titulo, .contatos-titulo, .sobre-titulo, .servicos-titulo-principal {
+    .skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
         font-size: 2.8rem;
     }
 

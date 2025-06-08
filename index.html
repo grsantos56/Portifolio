@@ -6,6 +6,7 @@
         <title>Portfólio - Gabriel Rodrigues</title>
         <link rel="stylesheet" href="style.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     </head>
     <body>
         <nav class="navbar">
@@ -67,68 +68,313 @@
 
         <section id="skills" class="skills">
             <h2 class="skills-titulo">Skills</h2>
-            <div class="skills-conteudo">
-                <ul class="skills-lista">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Node.js</li>
-                    <li>Java</li>
-                    <li>Python</li>
-                    <li>Spring Boot</li>
-                    <li>MySQL</li>
-                    <li>PostgreSQL</li>
-                    <li>MongoDB</li>
-                    <li>Docker</li>
-                    <li>Kubernetes</li>
-                </ul>
+
+            <div class="skills-filtros">
+                <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="backend">Backend</button>
+                <button class="filtro-btn" data-categoria="frontend">Frontend</button>
+                <button class="filtro-btn" data-categoria="banco-de-dados">Banco de Dados</button>
+                <button class="filtro-btn" data-categoria="ui-ux-design">UI/UX Design</button>
             </div>
+
+            <div class="skills-grade">
+                <div class="skill-card" data-categorias="frontend">
+                    <div class="skill-header">
+                        <i class='bx bxl-react skill-icon'></i>
+                        <h3 class="skill-name">React.js</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">80%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-django skill-icon'></i>
+                        <h3 class="skill-name">Django</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">70%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bx-plus-circle skill-icon'></i> <h3 class="skill-name">REST APIs</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">95%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="banco-de-dados">
+                    <div class="skill-header">
+                        <i class='bx bxs-data skill-icon'></i> <h3 class="skill-name">MySQL</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">90%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+                <div class="skill-card" data-categorias="banco-de-dados">
+                    <div class="skill-header">
+                        <i class='bx bxs-data skill-icon'></i> <h3 class="skill-name">PostgreSQL</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">85%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-java skill-icon'></i>
+                        <h3 class="skill-name">Java</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">95%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                 <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-spring-boot skill-icon'></i>
+                        <h3 class="skill-name">Spring Boot</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">95%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-nodejs skill-icon'></i>
+                        <h3 class="skill-name">Node.js</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">85%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-python skill-icon'></i>
+                        <h3 class="skill-name">Python</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">75%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="ui-ux-design">
+                    <div class="skill-header">
+                        <i class='bx bxl-figma skill-icon'></i>
+                        <h3 class="skill-name">Figma</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">70%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="frontend backend">
+                    <div class="skill-header">
+                        <i class='bx bxl-javascript skill-icon'></i>
+                        <h3 class="skill-name">JavaScript</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">90%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-categorias="frontend">
+                    <div class="skill-header">
+                        <i class='bx bxl-tailwind-css skill-icon'></i>
+                        <h3 class="skill-name">Tailwind</h3>
+                    </div>
+                    <div class="skill-details">
+                        <span class="skill-percentage">90%</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                        <p class="skill-description">Proficiência</p>
+                    </div>
+                </div>
+
+                </div>
+
+            <h3 class="skills-subtitulo">Habilidades adicionais</h3>
+            <div class="habilidades-adicionais">
+                <span class="extra-tag">Git</span>
+                <span class="extra-tag">Docker</span>
+                <span class="extra-tag">Kubernets</span>
+                <span class="extra-tag">AWS</span>
+                <span class="extra-tag">CI/CD</span>
+                <span class="extra-tag">Agile</span>
+                <span class="extra-tag">Microservices</span>
+                <span class="extra-tag">Linux</span>
+                
+                </div>
         </section>
 
         <section id="projetos" class="projetos">
             <h2 class="projetos-titulo">Projetos</h2>
             <div class="projetos-conteudo">
-                <div class="projeto">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto 1" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Projeto 1</h3>
-                    <p class="projeto-descricao">Descrição do projeto 1. Este projeto utiliza HTML, CSS e JavaScript para criar uma aplicação interativa.</p>
-                    <a href="#" class="projeto-link">Ver Projeto</a>
+
+                <div class="projeto-card">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto: Workshop Spring Boot" class="projeto-imagem">
+                    <div class="projeto-info">
+                        <h3 class="projeto-card-titulo">Workshop: APIs com Spring Boot</h3>
+                        <p class="projeto-card-descricao">Um projeto prático que simula um workshop de desenvolvimento de APIs RESTful usando Spring Boot. Abrange desde a configuração inicial até a implementação de endpoints e persistência de dados. Ideal para quem busca aprofundar conhecimentos em backend Java.</p>
+                        
+                        <div class="projeto-tecnologias">
+                            <i class='bx bxl-java projeto-tech-icon' title="Java"></i>
+                            <i class='devicon-spring-plain colored projeto-tech-icon' title="Spring Boot"></i>
+                            <i class='devicon-postgresql-plain colored projeto-tech-icon' title="PostgreSQL"></i>
+                            <i class='bx bx-git projeto-tech-icon' title="Git"></i>
+                        </div>
+
+                        <div class="projeto-botoes">
+                            <button class="btn-projeto detalhes" data-projeto-id="workshop-spring-boot">Mais Detalhes</button>
+                            <a href="https://github.com/gabrielrodrigues-portfolio/workshop-spring-boot" target="_blank" class="btn-projeto ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="projeto">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto 2" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Projeto 2</h3>
-                    <p class="projeto-descricao">Descrição do projeto 2. Um sistema backend desenvolvido com Node.js e banco de dados MongoDB.</p>
-                    <a href="#" class="projeto-link">Ver Projeto</a>
+                <div class="projeto-card">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto: Instalador Linux" class="projeto-imagem">
+                    <div class="projeto-info">
+                        <h3 class="projeto-card-titulo">Instalador de Aplicativos Linux</h3>
+                        <p class="projeto-card-descricao">Um script ou pequeno programa para automatizar a instalação e configuração de softwares comuns em distribuições Linux (e.g., Ubuntu, Fedora). Otimiza o processo de setup de novas máquinas e garante consistência entre ambientes.</p>
+                        
+                        <div class="projeto-tecnologias">
+                            <i class='bx bxl-python projeto-tech-icon' title="Python"></i>
+                            <i class='bx bxl-linux projeto-tech-icon' title="Linux Scripting"></i>
+                            <i class='bx bx-terminal projeto-tech-icon' title="Shell Script"></i>
+                            <i class='bx bx-git projeto-tech-icon' title="Git"></i>
+                        </div>
+
+                        <div class="projeto-botoes">
+                            <button class="btn-projeto detalhes" data-projeto-id="instalador-linux">Mais Detalhes</button>
+                            <a href="https://github.com/gabrielrodrigues-portfolio/instalador-linux" target="_blank" class="btn-projeto ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="projeto">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto 3" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Projeto 3</h3>
-                    <p class="projeto-descricao">Descrição do projeto 3. Aplicação mobile desenvolvida com React Native e integração com API.</p>
-                    <a href="#" class="projeto-link">Ver Projeto</a>
+                <div class="projeto-card">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto: Gerenciador de Tarefas" class="projeto-imagem">
+                    <div class="projeto-info">
+                        <h3 class="projeto-card-titulo">Gerenciador de Tarefas (Fullstack)</h3>
+                        <p class="projeto-card-descricao">Aplicação fullstack para gerenciar tarefas e projetos pessoais ou em equipe. Desenvolvido com Spring Boot no backend para API RESTful e React no frontend para uma interface dinâmica e intuitiva, com persistência de dados.</p>
+                        
+                        <div class="projeto-tecnologias">
+                            <i class='bx bxl-java projeto-tech-icon' title="Java"></i>
+                            <i class='devicon-spring-plain colored projeto-tech-icon' title="Spring Boot"></i>
+                            <i class='bx bxl-react projeto-tech-icon' title="React"></i>
+                            <i class='devicon-mysql-plain colored projeto-tech-icon' title="MySQL"></i>
+                        </div>
+
+                        <div class="projeto-botoes">
+                            <button class="btn-projeto detalhes" data-projeto-id="gerenciador-tarefas">Mais Detalhes</button>
+                            <a href="https://github.com/gabrielrodrigues-portfolio/gerenciador-tarefas" target="_blank" class="btn-projeto ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="projeto-card">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto: Site de Games" class="projeto-imagem">
+                    <div class="projeto-info">
+                        <h3 class="projeto-card-titulo">Game Hub: Portal de Descrição de Games</h3>
+                        <p class="projeto-card-descricao">Um site interativo para explorar e visualizar detalhes de diversos jogos. Integra-se com APIs de games para buscar informações, como descrições, plataformas, gêneros e avaliações. Frontend focado em responsividade e UX.</p>
+                        
+                        <div class="projeto-tecnologias">
+                            <i class='bx bxl-html5 projeto-tech-icon' title="HTML"></i>
+                            <i class='bx bxl-css3 projeto-tech-icon' title="CSS"></i>
+                            <i class='bx bxl-javascript projeto-tech-icon' title="JavaScript"></i>
+                            <i class='bx bxl-react projeto-tech-icon' title="React"></i>
+                            <i class='bx bx-data skill-icon' title="API REST"></i> </div>
+
+                        <div class="projeto-botoes">
+                            <button class="btn-projeto detalhes" data-projeto-id="site-games">Mais Detalhes</button>
+                            <a href="https://github.com/gabrielrodrigues-portfolio/site-games" target="_blank" class="btn-projeto ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </section>
+
+        <div id="projeto-modal" class="modal">
+            <div class="modal-content">
+                <span class="fechar-modal">&times;</span>
+                <img id="modal-imagem" src="" alt="Imagem do Projeto" class="modal-imagem">
+                <h3 id="modal-titulo" class="modal-titulo"></h3>
+                <div class="modal-tecnologias" id="modal-tecnologias"></div>
+                <p id="modal-descricao-longa" class="modal-descricao-longa"></p>
+                <div class="modal-links">
+                    <a id="modal-repo-link" href="#" target="_blank" class="btn-modal">Ver no GitHub</a>
+                </div>
+            </div>
+        </div>
 
         <section id="servicos" class="servicos-section">
             <h2 class="servicos-titulo-principal">Serviços</h2>
             <div class="servicos-conteudo">
                 <div class="servico">
-                    <img src="img/one piecee.png" alt="Desenvolvimento Frontend" class="servicos-imagem">
-                    <h3 class="servicos-titulo">Desenvolvimento Frontend</h3>
-                    <p class="servicos-descricao">Criação de interfaces de usuário responsivas e intuitivas com as tecnologias mais recentes.</p>
+                    <i class='bx bx-code-alt servicos-icon' title="Desenvolvimento Fullstack"></i>
+                    <h3 class="servicos-titulo">Desenvolvimento Fullstack</h3>
+                    <p class="servicos-descricao">Criação de aplicações web completas, desde a interface de usuário (frontend) até a lógica de negócios e banco de dados (backend), garantindo soluções integradas e de alta performance.</p>
                 </div>
                 <div class="servico">
-                    <img src="img/one piecee.png" alt="Desenvolvimento Backend" class="servicos-imagem">
-                    <h3 class="servicos-titulo">Desenvolvimento Backend</h3>
-                    <p class="servicos-descricao">Construção de APIs robustas e escaláveis, gerenciamento de banco de dados e lógica de servidor.</p>
+                    <i class='bx bx-cloud-upload servicos-icon' title="DevOps"></i>
+                    <h3 class="servicos-titulo">DevOps</h3>
+                    <p class="servicos-descricao">Implementação de práticas e ferramentas de DevOps para otimizar o ciclo de vida do desenvolvimento de software, incluindo automação de CI/CD, gerenciamento de infraestrutura e monitoramento.</p>
                 </div>
                 <div class="servico">
-                    <img src="img/one piecee.png" alt="Desenvolvimento Mobile" class="servicos-imagem">
+                    <i class='bx bx-mobile-alt servicos-icon' title="Desenvolvimento Mobile"></i>
                     <h3 class="servicos-titulo">Desenvolvimento Mobile</h3>
-                    <p class="servicos-descricao">Desenvolvimento de aplicativos nativos ou híbridos para iOS e Android.</p>
+                    <p class="servicos-descricao">Desenvolvimento de aplicativos móveis nativos (Android/iOS) e/ou híbridos, focando em usabilidade, performance e experiência do usuário em diferentes dispositivos.</p>
                 </div>
             </div>
         </section>
@@ -140,9 +386,9 @@
                 <div class="contatos-sociais">
                     <a href="#" class="contato-link"><i class="bx bxl-linkedin"></i> LinkedIn</a>
                     <a href="#" class="contato-link"><i class="bx bxl-github"></i> GitHub</a>
-                    <a href="#" class="contato-link"><i class="bx bxl-twitter"></i> Twitter</a>
+                    <a href="#" class="contato-link"><i class="bx bxl-whatsapp"></i> Whatsapp</a>
                     <a href="#" class="contato-link"><i class="bx bxl-instagram"></i> Instagram</a>
-                    <a href="mailto:seuemail@example.com" class="contato-link"><i class="bx bx-envelope"></i> E-mail</a>
+                    <a href="mailto:gabrielrsantos999@gmail.com" class="contato-link"><i class="bx bx-envelope"></i> E-mail</a>
                 </div>
             </div>
         </section>
