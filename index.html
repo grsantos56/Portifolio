@@ -3,101 +3,142 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portifólio</title>
+        <title>Portfólio - Gabriel Rodrigues</title>
         <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
         <nav class="navbar">
             <ul class="menu">
-                <li><a href="#inicio" class="menu-link">Inicio</a></li>
-                <li><a href="#sobre" class="menu-link">sobre</a></li>
-                <li><a href="#skills" class="menu-link">skills</a></li>
-                <li><a href="#projetos" class="menu-link">projetos</a></li>
-                <li><a href="#contatos" class="menu-link">contato</a></li>
+                <li style="color: #7c3aed; font-weight: bold;">Gabriel Rodrigues</li>
+                <li><a href="#inicio" class="menu-link">Início</a></li>
+                <li><a href="#skills" class="menu-link">Skills</a></li>
+                <li><a href="#projetos" class="menu-link">Projetos</a></li>
+                <li><a href="#servicos" class="menu-link">Serviços</a></li>
+                <li><a href="#contatos" class="menu-link">Contato</a></li>
             </ul>
         </nav>
+
         <main id="inicio" class="cabecalho">
-            <div>
-                <img src="img/one piecee.png" alt="perfil" class="foto-perfil">
-                <h1>Gabriel Rodrigues dos Santos</h1>
-                <p>desenvolvedor fullstack</p>
+            <div class="home-img">
+                <img src="img/one piecee.png" alt="foto de perfil" />
             </div>
 
-            <section id="sobre" class="sobre">
-                <h2 class="sobre-titulo">Sobre mim</h2>
-                <div class="sobre-conteudo">
-                    <p class="sobre-texto">
-                        Olá, meu nome é Gabriel Rodrigues dos Santos, tenho 19 anos e sou um desenvolvedor fullstack. Estou sempre em busca de aprender novas tecnologias e aprimorar minhas habilidades.
-                    </p>
+            <div class="conteudo-apresentacao">
+                <h3>Olá, meu nome é</h3>
+                <h1>Gabriel Rodrigues</h1>
+                <h3>Eu sou <span class="multiple-text"></span></h3>
+                <p>
+                    Sou um desenvolvedor fullstack com experiência em criar aplicações web e mobile.
+                </p>
+
+                <div class="social-media">
+                    <a href="#"><i class="bx bxl-whatsapp"></i></a>
+                    <a href="#"><i class="bx bxl-github"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
                 </div>
-            </section>
-
-            <section id="skills" class="skills">
-                <h2 class="skills-titulo">Skills</h2>
-                <div class="skills-conteudo">
-                    <ul class="skills-lista">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>Node.js</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>Spring Boot</li>
-                        <li>Mysql</li>
-                        <li>PostgreSQL</li>
-                        <li>MongoDB</li>
-                        <li>Docker</li>
-                        <li>Kubernets</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="projetos" class="projetos">
-                <h2 class="projetos-titulo">Projetos</h2>
-                <div class="projetos-conteudo">
-
-                    <div class="projeto">
-                        <img src="img/one piecee.png" alt="" class="projeto-imagem">
-                        <h3 class="projeto-titulo">Projeto 1</h3>
-                        <p class="projeto-descricao">Descrição do projeto 1. Este projeto utiliza HTML, CSS e JavaScript.</p>
-                        <a href="#" class="projeto-link">Ver Projeto</a>
-                    </div>
-
-                    <div class="projeto">
-                        <img src="img/one piecee.png" alt="" class="projeto-imagem">
-                        <h3 class="projeto-titulo">Projeto 2</h3>
-                        <p class="projeto-descricao">Descrição do projeto 2. Este projeto utiliza HTML, CSS e JavaScript.</p>
-                        <a href="#" class="projeto-link">Ver Projeto</a>
-                    </div>
-
-                    <div class="projeto">
-                        <img src="img/one piecee.png" alt="" class="projeto-imagem">
-                        <h3 class="projeto-titulo">Projeto 3</h3>
-                        <p class="projeto-descricao">Descrição do projeto 3. Este projeto utiliza HTML, CSS e JavaScript.</p>
-                        <a href="#" class="projeto-link">Ver Projeto</a>
-                    </div>
-                    
-                </div>
-            </section>
-
-            <section id="contatos" class="contatos">
-                <h2 class="contatos-titulo">Contato</h2>
-                <div class="contatos-conteudo">
-                    <p class="contatos-texto">Você pode me encontrar nas seguintes redes sociais:</p>
-                    <ul class="contatos-lista">
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </section>
-
+                <a href="#" class="btn">Veja meu currículo</a>
+            </div>
         </main>
+
+        <section class="sobre" id="sobre">
+            <h2 class="sobre-titulo">Sobre mim</h2>
+            <div class="sobre-conteudo">
+                <p class="sobre-texto">
+                    Olá, meu nome é Gabriel Rodrigues dos Santos, tenho 19 anos e sou um desenvolvedor fullstack. Estou sempre em busca de aprender novas tecnologias e aprimorar minhas habilidades. Minha jornada na programação começou cedo, e desde então, tenho me dedicado a construir projetos que realmente fazem a diferença. Sou apaixonado por desafios e pela constante evolução que a área de tecnologia proporciona.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2 class="skills-titulo">Skills</h2>
+            <div class="skills-conteudo">
+                <ul class="skills-lista">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>Spring Boot</li>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>MongoDB</li>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projetos" class="projetos">
+            <h2 class="projetos-titulo">Projetos</h2>
+            <div class="projetos-conteudo">
+                <div class="projeto">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto 1" class="projeto-imagem">
+                    <h3 class="projeto-titulo">Projeto 1</h3>
+                    <p class="projeto-descricao">Descrição do projeto 1. Este projeto utiliza HTML, CSS e JavaScript para criar uma aplicação interativa.</p>
+                    <a href="#" class="projeto-link">Ver Projeto</a>
+                </div>
+
+                <div class="projeto">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto 2" class="projeto-imagem">
+                    <h3 class="projeto-titulo">Projeto 2</h3>
+                    <p class="projeto-descricao">Descrição do projeto 2. Um sistema backend desenvolvido com Node.js e banco de dados MongoDB.</p>
+                    <a href="#" class="projeto-link">Ver Projeto</a>
+                </div>
+
+                <div class="projeto">
+                    <img src="img/one piecee.png" alt="Imagem do Projeto 3" class="projeto-imagem">
+                    <h3 class="projeto-titulo">Projeto 3</h3>
+                    <p class="projeto-descricao">Descrição do projeto 3. Aplicação mobile desenvolvida com React Native e integração com API.</p>
+                    <a href="#" class="projeto-link">Ver Projeto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="servicos-section">
+            <h2 class="servicos-titulo-principal">Serviços</h2>
+            <div class="servicos-conteudo">
+                <div class="servico">
+                    <img src="img/one piecee.png" alt="Desenvolvimento Frontend" class="servicos-imagem">
+                    <h3 class="servicos-titulo">Desenvolvimento Frontend</h3>
+                    <p class="servicos-descricao">Criação de interfaces de usuário responsivas e intuitivas com as tecnologias mais recentes.</p>
+                </div>
+                <div class="servico">
+                    <img src="img/one piecee.png" alt="Desenvolvimento Backend" class="servicos-imagem">
+                    <h3 class="servicos-titulo">Desenvolvimento Backend</h3>
+                    <p class="servicos-descricao">Construção de APIs robustas e escaláveis, gerenciamento de banco de dados e lógica de servidor.</p>
+                </div>
+                <div class="servico">
+                    <img src="img/one piecee.png" alt="Desenvolvimento Mobile" class="servicos-imagem">
+                    <h3 class="servicos-titulo">Desenvolvimento Mobile</h3>
+                    <p class="servicos-descricao">Desenvolvimento de aplicativos nativos ou híbridos para iOS e Android.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatos" class="contatos">
+            <h2 class="contatos-titulo">Contato</h2>
+            <div class="contatos-conteudo">
+                <p class="contatos-texto">Você pode me encontrar nas seguintes redes sociais ou entrar em contato diretamente:</p>
+                <div class="contatos-sociais">
+                    <a href="#" class="contato-link"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+                    <a href="#" class="contato-link"><i class="bx bxl-github"></i> GitHub</a>
+                    <a href="#" class="contato-link"><i class="bx bxl-twitter"></i> Twitter</a>
+                    <a href="#" class="contato-link"><i class="bx bxl-instagram"></i> Instagram</a>
+                    <a href="mailto:seuemail@example.com" class="contato-link"><i class="bx bx-envelope"></i> E-mail</a>
+                </div>
+            </div>
+        </section>
 
         <footer class="rodape">
             <p>&copy; 2025 Gabriel Rodrigues dos Santos. Todos os direitos reservados.</p>
         </footer>
+
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
