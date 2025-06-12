@@ -121,9 +121,12 @@ section {
 
     .menu-toggle {
         display: block;
+        
     }
 
-    /* Aumenta o espaço do conteúdo para não colar com a navbar */
+    .menu-toggle active {
+        color: var(--secundaria); 
+    }
     body {
         padding-top: 100px;
     }
@@ -267,7 +270,7 @@ span {
     width: 70%;
     margin: auto;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     font-size: 1.7rem;
   }
 }
@@ -1438,5 +1441,5 @@ span {
     .servicos-descricao{
         font-size: 1.4rem;
     }
-    
+
 }

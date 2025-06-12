@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('show');
     });
 
+    function mudaCorHamburguer() {
+        const hamburguer = document.getElementById('menu-toggle');
+        menu-toggle.style.colo
+    }
+
     // --- Scroll Suave para os links da navbar ---
     document.querySelectorAll('.menu-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
