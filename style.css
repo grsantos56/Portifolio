@@ -1435,6 +1435,19 @@ span {
         font-size: 1.4rem;
         padding: 0.8rem 1.5rem;
     }
+    .modal-titulo{
+        font-size: 2.4rem;
+    }
+    .modal-descricao-longa{
+        font-size: 1.5rem;
+    }
+    .modal-tecnologias .projeto-tech-icon{
+        font-size: 3.8rem;
+    }
+    .modal-links .btn-modal{
+        font-size: 1.6rem;
+        padding: 0.8rem 2rem;
+    }
     .servicos-titulo{
         font-size: 2.2rem;
     }

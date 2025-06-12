@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             - Boas práticas de design de API e tratamento de erros.
             <br><br>
             Este projeto demonstra a capacidade de criar soluções de backend escaláveis e bem estruturadas, fundamentais para aplicações modernas.`,
-            repositorio: "https://github.com/gabrielrodrigues-portfolio/workshop-spring-boot"
+            repositorio: "https://github.com/grsantos56/workshop"
         },
         "instalador-linux": {
             titulo: "Instalador de Aplicativos Linux",
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             - Otimização do processo de setup para desenvolvedores e novos usuários de Linux.
             <br><br>
             Este projeto visa simplificar e padronizar o ambiente de trabalho em máquinas Linux, economizando tempo e minimizando erros manuais.`,
-            repositorio: "https://github.com/gabrielrodrigues-portfolio/instalador-linux"
+            repositorio: "https://github.com/grsantos56/LinuxTools"
         },
         "gerenciador-tarefas": {
             titulo: "Gerenciador de Tarefas (Fullstack)",
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             - Arquitetura modular e escalável.
             <br><br>
             Este projeto demonstra habilidades tanto em desenvolvimento backend robusto quanto em criação de interfaces de usuário modernas e interativas.`,
-            repositorio: "https://github.com/gabrielrodrigues-portfolio/gerenciador-tarefas"
+            repositorio: "https://github.com/grsantos56/estudos-spring"
         },
         "site-games": {
             titulo: "Game Hub: Portal de Descrição de Games",
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             - Frontend desenvolvido com React para uma experiência de usuário fluida.
             <br><br>
             Este projeto destaca minhas habilidades em integração de APIs, manipulação de dados assíncronos e construção de interfaces de usuário envolventes e interativas.`,
-            repositorio: "https://github.com/gabrielrodrigues-portfolio/site-games"
+            repositorio: "https://github.com/grsantos56/Trabalho-de-desenvolvimento-web"
         }
     };
 
