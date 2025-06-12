@@ -207,14 +207,6 @@ span {
     border-radius: 2px;
 }
 
-/* Sobre mim */
-.sobre-conteudo { /* Se não estiver mais sendo usado, pode ser removido */
-    max-width: 750px;
-    margin: 0 auto;
-    font-size: 1.6rem;
-    line-height: 1.7;
-    text-align: justify;
-}
 
 .sobre-titulo-personalizado-fora-quadro {
     font-size: 3.2rem; /* Tamanho do título da seção */
