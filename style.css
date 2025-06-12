@@ -99,6 +99,7 @@ section {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    
     .menu {
         display: none;
         flex-direction: column;
@@ -267,6 +268,7 @@ span {
     margin: auto;
     text-align: center;
     margin-top: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -415,6 +417,7 @@ span {
 }
 
 @media (max-width: 768px) {
+   
     .sobre-quadro {
         padding: 2rem;
         margin: 0 1rem 3rem 1rem;
@@ -1398,4 +1401,42 @@ span {
     .rodape {
         font-size: 1.1rem;
     }
+}
+
+@media(max-width: 768px){
+    .conteudo-apresentacao p{
+        font-size: 1.6rem; /* Ajusta o tamanho do texto para telas menores */
+    }
+    .sobre .sobre-texto{
+        font-size: 1.6rem; /* Ajusta o tamanho do texto para telas menores */
+    }
+    .sobre .tag{
+        font-size: 1.4rem
+    }
+    .filtro-btn{
+        font-size: 1.4rem;
+    }
+    .extra-tag{
+        font-size: 1.4rem;
+    }
+    .projeto-card-titulo{
+        font-size: 2.2rem;
+    }
+    .projeto-card-descricao{
+        font-size: 1.4rem;
+    }
+    .projeto-tech-icon{
+        font-size: 2.5rem;
+    }
+    .btn-projeto{
+        font-size: 1.4rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .servicos-titulo{
+        font-size: 2.2rem;
+    }
+    .servicos-descricao{
+        font-size: 1.4rem;
+    }
+    
 }
