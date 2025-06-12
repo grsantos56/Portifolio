@@ -1,4 +1,10 @@
-/* Reset e variáveis */
+/*
+ * Regras de Reset CSS:
+ * Zera margens, paddings, bordas e outlines para todos os elementos,
+ * padroniza o modelo de caixa para 'border-box' (facilitando o layout),
+ * remove sublinhados de links e define o comportamento de scroll suave.
+ * A fonte 'Poppins' é definida como padrão para todo o documento.
+ */
 * {
     margin: 0;
     padding: 0;
@@ -10,86 +16,137 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/*
+ * Variáveis CSS (Custom Properties):
+ * Define um conjunto de cores e tamanhos de fonte que podem ser reutilizados em todo o CSS,
+ * promovendo consistência visual e facilitando a manutenção e futuras mudanças de tema.
+ */
 :root {
-    --primaria: #4f46e5; /* Índigo */
-    --secundaria: #7c3aed; /* Violeta */
-    --escuro: #0f172a; /* Azul escuro */
-    --claro: #e2e8f0; /* Cinza claro */
-    --vidro: rgba(255, 255, 255, 0.1); /* Efeito de vidro */
+    --primaria: #4f46e5; /* Cor primária: Índigo (usada para destaques e botões) */
+    --secundaria: #7c3aed; /* Cor secundária: Violeta (usada para acentos e ícones) */
+    --escuro: #0f172a; /* Cor de fundo principal: Azul escuro */
+    --claro: #e2e8f0; /* Cor de texto principal: Cinza claro */
+    --vidro: rgba(255, 255, 255, 0.1); /* Cor com transparência para efeito de vidro */
 }
 
+/*
+ * Estilos Globais do Body:
+ * Define a cor de fundo e a cor de texto padrão para todo o corpo do documento,
+ * e desabilita o scroll horizontal para evitar barras de rolagem indesejadas.
+ */
 body {
     background-color: var(--escuro);
     color: var(--claro);
-    overflow-x: hidden;
+    overflow-x: hidden; /* Previne scroll horizontal */
 }
 
+/*
+ * Estilos Padrão para Seções:
+ * Define padding, altura mínima e responsividade para todas as seções,
+ * garantindo um espaçamento consistente e que cada seção ocupe a maior parte da tela.
+ */
 section {
-    padding: 10rem 9% 2rem;
-    min-height: 100vh;
+    padding: 10rem 9% 2rem; /* Padding superior, lateral e inferior */
+    min-height: 100vh; /* Altura mínima de 100% da viewport height */
 }
 
-/* Navbar */
+
+/*
+ * Navbar (Barra de Navegação Principal):
+ * Estiliza o cabeçalho como uma barra de navegação fixa, centralizando o logo e o menu.
+ */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: fixed; /* Fixa a barra no topo da viewport */
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(15, 26, 42, 0.9);
-    padding: 1.2rem 3%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: rgba(15, 26, 42, 0.9); /* Fundo semi-transparente */
+    padding: 1.2rem 3%; /* Espaçamento interno */
+    z-index: 1000; /* Garante que a barra esteja acima de outros elementos */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra sutil */
 }
 
+/*
+ * Estilo do Logotipo na Navbar:
+ * Define a cor, peso da fonte e tamanho do logotipo.
+ */
 .logo {
-    color: #7c3aed;
+    color: var(--secundaria); /* Cor secundária para o logo */
     font-weight: bold;
     font-size: 1.6rem;
 }
 
+/*
+ * Estilo do Contêiner da Navegação:
+ * Organiza os itens de navegação.
+ */
 .navbar {
     display: flex;
     align-items: center;
 }
 
+/*
+ * Estilo da Lista de Itens do Menu:
+ * Remove marcadores de lista e define o espaçamento entre os itens.
+ */
 .menu {
     display: flex;
-    list-style: none;
-    gap: 3rem;
+    list-style: none; /* Remove marcadores de lista */
+    gap: 3rem; /* Espaçamento entre os itens do menu */
 }
 
+/*
+ * Estilo de cada Item de Lista do Menu:
+ * Define o tamanho da fonte.
+ */
 .menu li {
     font-size: 1.4rem;
 }
 
+/*
+ * Estilo dos Links do Menu:
+ * Define a cor, peso da fonte e uma transição suave para interações.
+ * Inclui um pseudo-elemento para criar um efeito de sublinhado animado.
+ */
 .menu-link {
     color: var(--claro);
     font-weight: 500;
-    transition: 0.3s;
-    position: relative;
+    transition: 0.3s; /* Transição suave para o hover */
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
 }
 
+/*
+ * Efeito de Sublinhado Animado para Links do Menu:
+ * Cria uma linha que aparece e se expande ao passar o mouse.
+ */
 .menu-link::after {
     content: '';
     position: absolute;
     height: 2px;
-    width: 0;
-    bottom: -4px;
+    width: 0; /* Começa com largura zero */
+    bottom: -4px; /* Posiciona abaixo do texto */
     left: 0;
-    background: linear-gradient(to right, var(--primaria), var(--secundaria));
-    transition: width 0.3s ease;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria)); /* Gradiente de cor */
+    transition: width 0.3s ease; /* Anima a largura */
 }
 
+/*
+ * Comportamento do Sublinhado ao Hover:
+ * Expande a largura do sublinhado para 100% ao passar o mouse.
+ */
 .menu-link:hover::after {
     width: 100%;
 }
 
-/* Botão hamburger */
+/*
+ * Botão Hamburger (Menu Toggle):
+ * Oculto por padrão em telas maiores, visível apenas em dispositivos móveis.
+ */
 .menu-toggle {
-    display: none;
+    display: none; /* Oculto por padrão */
     background: none;
     border: none;
     font-size: 2rem;
@@ -97,91 +154,140 @@ section {
     cursor: pointer;
 }
 
-/* Responsividade */
+/*
+ * Responsividade da Navbar (para telas menores que 768px):
+ * Oculta o menu padrão e exibe o botão hamburger,
+ * ajustando o layout do menu para uma coluna quando ativo.
+ */
 @media (max-width: 768px) {
-    
+
+    /*
+     * Estilo do Menu em Telas Menores:
+     * Oculta o menu por padrão, define como coluna, posicionamento absoluto
+     * e estilos para o fundo e sombra.
+     */
     .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Mais próximo da barra */
+        display: none; /* Oculta o menu por padrão */
+        flex-direction: column; /* Organiza itens em coluna */
+        position: absolute; /* Posicionamento absoluto em relação ao cabeçalho */
+        top: 60px; /* Alinha abaixo da barra de navegação */
         right: 3%;
-        background: rgba(15, 26, 42, 0.95);
+        background: rgba(15, 26, 42, 0.95); /* Fundo semi-transparente para o menu flutuante */
         width: 200px;
         padding: 1.2rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        gap: 1.2rem;
+        gap: 1.2rem; /* Espaçamento entre itens do menu */
         border-radius: 8px;
-        z-index: 999;
+        z-index: 999; /* Garante que o menu flutuante esteja acima do conteúdo principal */
     }
 
+    /*
+     * Exibe o Menu quando a Classe 'show' é Ativa (via JavaScript).
+     */
     .menu.show {
         display: flex;
     }
 
+    /*
+     * Exibe o Botão Hamburger em Telas Menores.
+     */
     .menu-toggle {
         display: block;
-        
     }
 
+    /*
+     * Estilo do Botão Hamburger Ativo (se houver uma classe 'active').
+     */
     .menu-toggle active {
-        color: var(--secundaria); 
+        color: var(--secundaria);
     }
+    /*
+     * Ajuste do padding superior do body para evitar que o conteúdo fique atrás da navbar fixa em mobile.
+     * Pode ser redundante ou necessitar de ajuste fino dependendo do HTML.
+     */
     body {
         padding-top: 100px;
     }
-    
+
 }
 
-/* Cabeçalho (Home) */
+
+/*
+ * Cabeçalho (Seção Home/Início):
+ * Define o layout principal da seção de apresentação, usando flexbox para alinhar conteúdo e imagem.
+ */
 .cabecalho {
     display: flex;
-    /* Inverte a ordem dos itens: texto à esquerda, imagem à direita */
-    flex-direction: row-reverse;
-    align-items: center;
-    /* Ajustado para espaçar texto e imagem mais perto */
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-top: 10rem;
-    gap: 3rem; /* Diminuído para aproximar */
+    flex-direction: row-reverse; /* Inverte a ordem da imagem e do texto */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    justify-content: center; /* Centraliza itens horizontalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    padding-top: 10rem; /* Padding superior para afastar do cabeçalho fixo */
+    gap: 3rem; /* Espaçamento entre os itens flex */
 }
 
+/*
+ * Estilo da Imagem de Perfil no Cabeçalho:
+ * Garante que a imagem não encolha e remove margens.
+ */
 .cabecalho .home-img {
-    flex-shrink: 0;
-    /* Remove as margens automáticas para centralizar melhor quando flex-direction está invertido */
+    flex-shrink: 0; /* Impede que a imagem encolha */
     margin: 0;
-    
 }
 
+/*
+ * Estilo do Conteúdo de Apresentação (Texto):
+ * Define a largura máxima, alinhamento de texto e flex-grow para ocupar espaço disponível.
+ */
 .cabecalho .conteudo-apresentacao {
-    max-width: 600px;
-    text-align: left;
-    flex-grow: 1;
-    /* Remove as margens automáticas */
+    max-width: 600px; /* Largura máxima para o bloco de texto */
+    text-align: left; /* Alinhamento do texto */
+    flex-grow: 1; /* Permite que o bloco de texto cresça para preencher o espaço */
     margin: 0;
 }
 
+/*
+ * Estilo do Título Principal no Cabeçalho (H1):
+ * Define tamanho da fonte, cor e altura da linha.
+ */
 .cabecalho h1 {
     font-size: 3.8rem;
     color: var(--primaria);
     line-height: 1.2;
 }
 
+/*
+ * Estilo dos Subtítulos no Cabeçalho (H3):
+ * Define tamanho da fonte e margem superior.
+ */
 .cabecalho h3 {
     font-size: 2rem;
     margin-top: 1rem;
 }
 
+/*
+ * Estilo dos Parágrafos no Cabeçalho:
+ * Define tamanho da fonte, margem superior e altura da linha.
+ */
 .cabecalho p {
     font-size: 1.4rem;
     margin-top: 1.5rem;
     line-height: 1.6;
 }
 
+/*
+ * Estilo de Destaque para Spans (usado para texto animado):
+ * Define a cor secundária.
+ */
 span {
     color: var(--secundaria);
 }
 
+/*
+ * Estilo Base para Botões (Generalizado):
+ * Define padding, cor de fundo, cor de texto, bordas arredondadas,
+ * peso da fonte, transição e sombra para um efeito 3D sutil.
+ */
 .btn {
     display: inline-block;
     margin-top: 2.5rem;
@@ -190,141 +296,184 @@ span {
     color: var(--claro);
     border-radius: 2rem;
     font-weight: bold;
-    transition: 0.3s ease;
+    transition: 0.3s ease; /* Transição suave para o hover */
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     font-size: 1.4rem;
 }
 
+/*
+ * Efeito de Hover para Botões:
+ * Altera a cor de fundo e adiciona uma sombra mais proeminente ao passar o mouse.
+ */
 .btn:hover {
     background: var(--secundaria);
     box-shadow: 0 0 15px var(--secundaria);
 }
 
+/*
+ * Estilo para a Seção de Mídias Sociais:
+ * Organiza os links de mídias sociais usando flexbox.
+ */
 .social-media {
     margin-top: 3rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Espaçamento entre os ícones */
 }
 
+/*
+ * Estilo para os Links de Mídias Sociais (Ícones):
+ * Define o tamanho, borda circular, cor e transição.
+ */
 .social-media a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
+    width: 45px; /* Largura e altura para fazer um círculo */
     height: 45px;
-    border: 2px solid var(--primaria);
-    border-radius: 50%;
-    color: var(--primaria);
+    border: 2px solid var(--primaria); /* Borda primária */
+    border-radius: 50%; /* Torna o elemento circular */
+    color: var(--primaria); /* Cor do ícone */
     font-size: 22px;
-    transition: 0.3s;
+    transition: 0.3s; /* Transição suave para o hover */
 }
 
+/*
+ * Efeito de Hover para Links de Mídias Sociais:
+ * Altera o fundo, cor do ícone e adiciona sombra.
+ */
 .social-media a:hover {
     background: var(--primaria);
     color: var(--escuro);
     box-shadow: 0 0 10px var(--primaria);
 }
 
-/* Imagem do perfil */
+/*
+ * Estilo e Animação da Imagem de Perfil:
+ * Define dimensões, ajuste da imagem, borda circular com sombra e uma animação de flutuação.
+ */
 .home-img img {
     width: 420px;
     height: 420px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--vidro);
-    box-shadow: 0 0 40px rgba(79, 70, 229, 0.4);
-    animation: floatImage 4s ease-in-out infinite;
+    object-fit: cover; /* Recorta a imagem para preencher o contêiner */
+    border-radius: 50%; /* Torna a imagem circular */
+    border: 4px solid var(--vidro); /* Borda com efeito de vidro */
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.4); /* Sombra externa */
+    animation: floatImage 4s ease-in-out infinite; /* Animação de flutuação infinita */
 }
 
-/* Animação da imagem */
+/*
+ * Keyframes para a Animação 'floatImage':
+ * Cria um efeito de flutuação vertical suave.
+ */
 @keyframes floatImage {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-1.5rem); }
-    100% { transform: translateY(0); }
+    0% { transform: translateY(0); } /* Posição inicial */
+    50% { transform: translateY(-1.5rem); } /* Posição intermediária (levemente para cima) */
+    100% { transform: translateY(0); } /* Retorna à posição inicial */
 }
 
+/*
+ * Responsividade para a Seção do Cabeçalho (Home) em Telas Menores que 768px:
+ * Ajusta o layout para empilhar o conteúdo verticalmente e centraliza os elementos.
+ */
 @media (max-width: 768px) {
   .cabecalho {
-    padding-inline: 1.5rem;
+    padding-inline: 1.5rem; /* Padding lateral ajustado */
   }
 
   .conteudo-apresentacao {
-    text-align: center;
+    text-align: center; /* Centraliza o texto */
   }
 
-  .cabecalho h1, 
-  .cabecalho h3, 
+  /* Centraliza todos os elementos de texto no cabeçalho. */
+  .cabecalho h1,
+  .cabecalho h3,
   .cabecalho p {
     text-align: center;
   }
 
   .social-media {
-    justify-content: center;
+    justify-content: center; /* Centraliza os ícones de mídias sociais */
   }
-  .social-media .btn{
-    text-align: center;
-  }
+  /* Ajuste desnecessário, remover: .social-media .btn{ text-align: center; } */
 
+  /* Ajusta o botão principal para ocupar mais largura em telas menores. */
   a.btn {
-    display: block;
+    display: block; /* Ocupa a largura total */
     width: 70%;
-    margin: auto;
+    margin: auto; /* Centraliza o botão */
     text-align: center;
     margin-top: 2.5rem;
     font-size: 1.7rem;
   }
 }
 
-
-/* Títulos das seções */
+/*
+ * Estilos Comuns para Títulos de Seções (Skills, Projetos, Contatos, Serviços):
+ * Define tamanho da fonte, margem inferior, alinhamento e posicionamento para um pseudo-elemento.
+ */
 .skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
+    font-size: 3.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--primaria);
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    padding-bottom: 10px; /* Espaço para o pseudo-elemento */
+}
+
+/*
+ * Pseudo-elemento de Linha Decorativa para Títulos de Seções:
+ * Cria uma linha com gradiente abaixo dos títulos, centralizada.
+ */
+.sobre-titulo-personalizado-fora-quadro::after, .skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .servicos-titulo-principal::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Posiciona no centro horizontal */
+    bottom: 0;
+    transform: translateX(-50%); /* Ajusta para centralizar perfeitamente */
+    width: 100px; /* Largura da linha */
+    height: 3px;
+    background: linear-gradient(to right, var(--primaria), var(--secundaria)); /* Gradiente de cor */
+    border-radius: 2px;
+}
+
+
+/*
+ * Estilo do Título "Sobre" fora do Quadro:
+ * Mantém consistência com outros títulos de seção.
+ */
+.sobre-titulo-personalizado-fora-quadro {
     font-size: 3.2rem;
     margin-bottom: 2.5rem;
     text-align: center;
     color: var(--primaria);
     position: relative;
     padding-bottom: 10px;
+    z-index: 1; /* Garante que esteja acima do quadro */
 }
 
-.sobre-titulo-personalizado-fora-quadro::after, .skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .servicos-titulo-principal::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primaria), var(--secundaria));
-    border-radius: 2px;
-}
-
-
-.sobre-titulo-personalizado-fora-quadro {
-    font-size: 3.2rem; /* Tamanho do título da seção */
-    margin-bottom: 2.5rem; /* Espaçamento abaixo do título */
-    text-align: center;
-    color: var(--primaria); /* Cor principal do título */
-    position: relative;
-    padding-bottom: 10px;
-    z-index: 1; /* Garante que ele fique acima de qualquer coisa no fundo */
-}
-/* Sobre Mim - Quadro */
+/*
+ * Estilo do Quadro da Seção "Sobre Mim":
+ * Cria um contêiner visualmente distinto para a seção "Sobre", com borda, sombra e gradiente de fundo.
+ */
 .sobre-quadro {
     background-color: var(--escuro);
-    border: 1px solid var(--primaria); /* Borda muito sutil */
-    border-radius: 1.5rem; /* Bordas arredondadas */
-    padding: 4rem 7rem; /* Mais espaçamento interno */
-    max-width: 1100px; /* Largura máxima maior */
-    margin: 0 auto 4rem auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais escura e visível */
+    border: 1px solid var(--primaria);
+    border-radius: 1.5rem;
+    padding: 4rem 7rem; /* Padding interno */
+    max-width: 1100px;
+    margin: 0 auto 4rem auto; /* Centraliza e adiciona margem inferior */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: left;
-    position: relative; /* Para a sombra interna, se necessário */
-    overflow: hidden; /* Garante que as sombras não vazem */
-    background: linear-gradient(135deg, rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.9)); /* Fundo com gradiente sutil */
-    
+    position: relative;
+    overflow: hidden; /* Garante que o conteúdo não vaze */
+    background: linear-gradient(135deg, rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.9)); /* Gradiente de fundo sutil */
+
 }
 
-/* Pseudo-elementos para os gradientes nas extremidades */
+/*
+ * Pseudo-elementos para Gradientes de Fundo no Quadro "Sobre":
+ * Adiciona gradientes sutis no topo e na base do quadro para um efeito visual.
+ */
 .sobre-quadro::before,
 .sobre-quadro::after {
     content: '';
@@ -332,81 +481,113 @@ span {
     width: 100%;
     height: 100px;
     left: 0;
-    z-index: 0; /* Ajustado para 0, para que o conteúdo do quadro esteja acima */
-    pointer-events: none;
+    z-index: 0; /* Fica abaixo do conteúdo do quadro */
+    pointer-events: none; /* Não interfere com eventos de mouse */
 }
 
+/*
+ * Gradiente Superior do Quadro "Sobre".
+ */
 .sobre-quadro::before {
     top: 0;
     background: linear-gradient(to bottom, rgba(124, 58, 237, 0.2), transparent);
 }
 
+/*
+ * Gradiente Inferior do Quadro "Sobre".
+ */
 .sobre-quadro::after {
     bottom: 0;
     background: linear-gradient(to top, rgba(79, 70, 229, 0.2), transparent);
 }
 
-/* Título "Muito prazer, eu sou Gabriel!" */
+
+/*
+ * Estilo do Título Interno do Quadro "Sobre":
+ * Define tamanho, peso da fonte e cor.
+ */
 .sobre-titulo-personalizado {
-    font-size: 3.5rem; /* Ajustado para ser maior */
-    font-weight: 700; /* Mais negrito */
-    color: var(--claro); /* Cor do texto claro */
-    margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--claro);
+    margin-bottom: 1.5rem;
     line-height: 1.2;
-    position: relative; /* Garante que o conteúdo interno esteja acima dos gradientes */
-    z-index: 2;
+    position: relative;
+    z-index: 2; /* Garante que o título esteja acima dos pseudo-elementos */
 }
 
+/*
+ * Estilo de Destaque para o Título Interno:
+ * Aplica a cor secundária para o texto destacado.
+ */
 .sobre-titulo-destaque {
-    color: var(--secundaria); /* Cor de destaque (violeta) */
+    color: var(--secundaria);
 }
 
-/* Parágrafos de texto */
+
+/*
+ * Estilo do Texto Descritivo no Quadro "Sobre":
+ * Define tamanho da fonte, altura da linha, cor e alinhamento.
+ */
 .sobre-quadro .sobre-texto {
     font-size: 1.5rem;
     line-height: 1.7;
-    margin-bottom: 2rem; /* Mais espaço entre os parágrafos e as tags */
-    color: var(--claro); /* Cor do texto principal */
+    margin-bottom: 2rem;
+    color: var(--claro);
     text-align: left;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Garante que o texto esteja acima dos pseudo-elementos */
 }
 
 
-/* Tags de tecnologia */
+/*
+ * Estilo para o Contêiner das Tags de Habilidades:
+ * Organiza as tags usando flexbox e define o espaçamento.
+ */
 .sobre-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem; /* Espaçamento menor entre as tags */
-    margin-top: 1.5rem; /* Espaçamento abaixo do primeiro parágrafo */
-    justify-content: flex-start;
+    flex-wrap: wrap; /* Permite que as tags quebrem para a próxima linha */
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    justify-content: flex-start; /* Alinha as tags à esquerda */
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Garante que as tags estejam acima dos pseudo-elementos */
 }
 
+/*
+ * Estilo de cada Tag de Habilidade:
+ * Define fundo transparente, borda, cor do texto e transição para o hover.
+ */
 .tag {
-    background-color: transparent; /* Fundo transparente */
-    border: 1px solid var(--primaria); /* Borda com a cor primária */
-    color: var(--primaria); /* Cor do texto primária */
-    padding: 0.4rem 1rem; /* Padding ajustado */
-    border-radius: 25px; /* Bordas arredondadas como pílula */
+    background-color: transparent;
+    border: 1px solid var(--primaria);
+    color: var(--primaria);
+    padding: 0.4rem 1rem;
+    border-radius: 25px; /* Bordas bem arredondadas */
     font-size: 1.2rem;
     font-weight: 400;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease; /* Transição para o hover */
 }
 
+/*
+ * Efeito de Hover para Tags de Habilidade:
+ * Altera a cor de fundo e do texto, adiciona um leve deslocamento e sombra.
+ */
 .tag:hover {
-    background-color: var(--primaria); /* Fundo preenchido no hover */
-    color: var(--claro); /* Texto claro no hover */
-    transform: translateY(-2px); /* Pequeno lift no hover */
-    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); /* Sombra no hover */
+    background-color: var(--primaria);
+    color: var(--claro);
+    transform: translateY(-2px); /* Deslocamento vertical */
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
 }
 
-/* Responsividade para o quadro */
+/*
+ * Responsividade para o Quadro "Sobre" em Telas Menores:
+ * Ajusta paddings, largura máxima e tamanhos de fonte.
+ */
 @media (max-width: 992px) {
     .sobre-quadro {
         padding: 2.5rem 3rem;
-        max-width: 800px; /* Ajuste para telas menores */
+        max-width: 800px;
     }
     .sobre-titulo-personalizado {
         font-size: 3rem;
@@ -420,10 +601,10 @@ span {
 }
 
 @media (max-width: 768px) {
-   
+
     .sobre-quadro {
         padding: 2rem;
-        margin: 0 1rem 3rem 1rem;
+        margin: 0 1rem 3rem 1rem; /* Ajusta margens laterais */
     }
     .sobre-titulo-personalizado {
         font-size: 2.5rem;
@@ -457,118 +638,153 @@ span {
     }
 }
 
-/* Skills */
-.skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
-    font-size: 3.2rem;
-    margin-bottom: 2.5rem;
-    text-align: center;
-    color: var(--primaria);
-    position: relative;
-    padding-bottom: 10px;
-}
 
-.skills-titulo::after, .projetos-titulo::after, .contatos-titulo::after, .servicos-titulo-principal::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primaria), var(--secundaria));
-    border-radius: 2px;
-}
+/*
+ * Seção de Habilidades (Skills):
+ * Estilos para a seção de habilidades.
+ */
+/* Os títulos da seção de habilidades já são cobertos por .skills-titulo */
 
-/* Skills - Botões de Filtro */
+/*
+ * Estilo dos Botões de Filtro de Habilidades:
+ * Organiza os botões de filtro e define seu estilo.
+ */
 .skills-filtros {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
+    gap: 1.2rem; /* Espaçamento entre os botões */
     margin-bottom: 3rem;
 }
 
+/*
+ * Estilo de cada Botão de Filtro:
+ * Define fundo transparente, borda, cor do texto, padding e bordas arredondadas.
+ */
 .filtro-btn {
     background-color: var(--escuro); /* Fundo igual ao do body */
     border: 1px solid var(--primaria);
     color: var(--primaria);
     padding: 0.8rem 1.8rem;
-    border-radius: 25px; /* Mais arredondado */
+    border-radius: 25px;
     font-size: 1.3rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave para o hover */
 }
 
+/*
+ * Efeito de Hover para Botões de Filtro:
+ * Altera o fundo e a cor do texto.
+ */
 .filtro-btn:hover {
     background-color: var(--primaria);
     color: var(--claro);
 }
 
+/*
+ * Estilo para o Botão de Filtro Ativo:
+ * Altera o fundo, cor do texto e adiciona uma sombra para indicar o estado ativo.
+ */
 .filtro-btn.active {
     background-color: var(--primaria);
     color: var(--claro);
     box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
 }
 
-/* Skills - Grade de Cartões */
+/*
+ * Grade de Cartões de Habilidades:
+ * Organiza os cartões de habilidade em um layout de grade responsivo.
+ */
 .skills-grade {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 2 colunas em telas maiores, 1 em menores */
+    /* Define colunas responsivas: no mínimo 320px, com preenchimento automático. */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem; /* Espaçamento entre os cartões */
-    max-width: 900px; /* Largura máxima para a grade */
+    max-width: 900px; /* Largura máxima da grade */
     margin: 0 auto; /* Centraliza a grade */
 }
 
+/*
+ * Estilo de cada Cartão de Habilidade:
+ * Define fundo, bordas arredondadas, padding, sombra e transição para o hover.
+ */
 .skill-card {
     background-color: #1a2233; /* Fundo ligeiramente mais claro que o --escuro */
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 150px; /* Altura mínima para os cartões */
-    transition: transform 0.3s ease;
+    flex-direction: column; /* Conteúdo empilhado verticalmente */
+    justify-content: space-between; /* Espaçamento entre os elementos */
+    min-height: 150px; /* Altura mínima para garantir consistência visual */
+    transition: transform 0.3s ease; /* Transição suave para o hover */
 }
 
+/*
+ * Efeito de Hover para Cartões de Habilidade:
+ * Adiciona um leve deslocamento vertical.
+ */
 .skill-card:hover {
-    transform: translateY(-5px); /* Efeito de levitação no hover */
+    transform: translateY(-5px); /* Efeito de levitação */
 }
 
+/*
+ * Estilo do Cabeçalho do Cartão de Habilidade (Ícone e Nome):
+ * Alinha o ícone e o nome horizontalmente.
+ */
 .skill-header {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
 }
 
+/*
+ * Estilo do Ícone de Habilidade:
+ * Define tamanho, cor e margem.
+ */
 .skill-icon {
-    font-size: 2.8rem; /* Tamanho do ícone */
-    color: var(--primaria); /* Cor do ícone */
+    font-size: 2.8rem;
+    color: var(--primaria);
     margin-right: 0.8rem;
 }
-/* Estilo para ícones Devicon, para garantir que sigam a cor do seu tema */
+/*
+ * Sobrescrita de Cor para Ícones Devicon:
+ * Garante que os ícones Devicon, que podem ter cores padrão, sigam a cor primária do tema.
+ */
 .devicon-mysql-plain.colored.skill-icon,
 .devicon-postgresql-plain.colored.skill-icon,
 .devicon-spring-plain.colored.skill-icon,
 .devicon-mongodb-plain.colored.skill-icon,
 .devicon-kubernetes-plain.colored.skill-icon {
-    color: var(--primaria) !important; /* !important para sobrescrever a cor padrão 'colored' */
+    color: var(--primaria) !important; /* Força a cor primária, ignorando a cor padrão do Devicon */
 }
 
 
+/*
+ * Estilo do Nome da Habilidade:
+ * Define tamanho da fonte, cor e peso.
+ */
 .skill-name {
     font-size: 2rem;
     color: var(--claro);
     font-weight: 600;
 }
 
+/*
+ * Estilo dos Detalhes da Habilidade (Porcentagem e Barra de Progresso):
+ * Organiza a porcentagem e a barra de progresso.
+ */
 .skill-details {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Alinha a porcentagem e barra à direita */
+    flex-direction: column; /* Empilha verticalmente */
+    align-items: flex-end; /* Alinha os itens à direita */
 }
 
+/*
+ * Estilo da Porcentagem da Habilidade:
+ * Define tamanho da fonte, peso e cor.
+ */
 .skill-percentage {
     font-size: 1.6rem;
     font-weight: 600;
@@ -576,28 +792,44 @@ span {
     margin-bottom: 0.5rem;
 }
 
+/*
+ * Contêiner da Barra de Progresso:
+ * Define a largura, altura, fundo e bordas arredondadas.
+ */
 .progress-bar-container {
     width: 100%;
-    height: 8px; /* Altura da barra */
-    background-color: #2b354a; /* Cor de fundo da barra */
+    height: 8px;
+    background-color: #2b354a; /* Cor de fundo para a parte vazia da barra */
     border-radius: 5px;
-    overflow: hidden;
+    overflow: hidden; /* Garante que o preenchimento não vaze */
 }
 
+/*
+ * Barra de Progresso (Preenchimento):
+ * Define a altura, gradiente de fundo e transição para a largura,
+ * permitindo animações suaves de preenchimento.
+ */
 .progress-bar {
     height: 100%;
-    background: linear-gradient(to right, var(--primaria), var(--secundaria)); /* Gradiente na barra */
+    background: linear-gradient(to right, var(--primaria), var(--secundaria)); /* Gradiente de preenchimento */
     border-radius: 5px;
-    transition: width 0.8s ease-in-out; /* Animação suave para a barra */
+    transition: width 0.8s ease-in-out; /* Anima a largura da barra */
 }
 
+/*
+ * Estilo da Descrição da Habilidade:
+ * Define tamanho da fonte, cor e margem.
+ */
 .skill-description {
     font-size: 1.2rem;
     color: var(--claro);
     margin-top: 0.5rem;
 }
 
-/* Habilidades Adicionais */
+/*
+ * Habilidades Adicionais (Subtítulo):
+ * Define tamanho da fonte, alinhamento, cor e margens.
+ */
 .skills-subtitulo {
     font-size: 2.5rem;
     text-align: center;
@@ -607,26 +839,38 @@ span {
     font-weight: 600;
 }
 
+/*
+ * Contêiner das Habilidades Adicionais (Tags):
+ * Organiza as tags usando flexbox e define o espaçamento.
+ */
 .habilidades-adicionais {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: center; /* Centraliza as tags */
+    flex-wrap: wrap; /* Permite que as tags quebrem */
     gap: 1rem;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centraliza o contêiner */
 }
 
+/*
+ * Estilo de cada Tag Adicional:
+ * Define fundo, borda sutil, cor do texto, padding e bordas arredondadas.
+ */
 .extra-tag {
     background-color: #1a2233; /* Fundo escuro */
     border: 1px solid rgba(79, 70, 229, 0.3); /* Borda sutil */
-    color: var(--claro); /* Cor do texto */
+    color: var(--claro);
     padding: 0.7rem 1.5rem;
-    border-radius: 25px; /* Bordas arredondadas */
+    border-radius: 25px;
     font-size: 1.2rem;
     font-weight: 400;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave para o hover */
 }
 
+/*
+ * Efeito de Hover para Tags Adicionais:
+ * Altera o fundo, adiciona sombra e cor do texto.
+ */
 .extra-tag:hover {
     background-color: var(--primaria);
     box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
@@ -634,10 +878,14 @@ span {
 }
 
 
-/* --- Responsividade da Seção Skills --- */
+/*
+ * Responsividade da Seção Skills:
+ * Ajusta o layout da grade e os tamanhos de fonte em diferentes breakpoints.
+ */
 @media (max-width: 992px) {
     .skills-grade {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta para 2 colunas menores */
+        /* Ajusta para 2 colunas menores em telas médias */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     .skill-card {
         padding: 1.2rem;
@@ -669,11 +917,11 @@ span {
 
 @media (max-width: 768px) {
     .skills-grade {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-        max-width: 90%; /* Ajusta a largura máxima */
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+        max-width: 90%;
     }
     .skills-filtros {
-        gap: 0.8rem; /* Menos espaço entre os botões */
+        gap: 0.8rem;
         margin-bottom: 2rem;
     }
     .filtro-btn {
@@ -719,7 +967,11 @@ span {
         padding: 0.4rem 0.8rem;
     }
 }
-/* Projetos */
+
+/*
+ * Seção de Projetos:
+ * Estilos específicos para a seção de projetos.
+ */
 .projetos-titulo {
     font-size: 3.2rem;
     margin-bottom: 2.5rem;
@@ -729,6 +981,9 @@ span {
     padding-bottom: 10px;
 }
 
+/*
+ * Linha Decorativa para o Título da Seção de Projetos.
+ */
 .projetos-titulo::after {
     content: '';
     position: absolute;
@@ -741,45 +996,69 @@ span {
     border-radius: 2px;
 }
 
-/* Projetos - Grade de Cards */
+/*
+ * Grade de Cards de Projetos:
+ * Organiza os cards de projeto em um layout de grade responsivo.
+ */
 .projetos-conteudo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumenta o tamanho mínimo do card */
-    gap: 3rem; /* Aumenta o espaçamento entre os cards */
-    max-width: 1200px; /* Alarga a área dos projetos */
-    margin: 0 auto;
-    padding: 0 2rem;
+    /* Colunas responsivas: tamanho mínimo de 350px, com preenchimento automático. */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem; /* Espaçamento entre os cards */
+    max-width: 1200px; /* Largura máxima da área de projetos */
+    margin: 0 auto; /* Centraliza */
+    padding: 0 2rem; /* Padding lateral */
 }
 
+/*
+ * Estilo de cada Cartão de Projeto:
+ * Define fundo, bordas arredondadas, sombra, layout flex e transição para o hover.
+ */
 .projeto-card {
-    background-color: #1a2233; /* Fundo escuro similar aos cards de skill */
+    background-color: #1a2233;
     border-radius: 1rem;
-    overflow: hidden; /* Garante que a imagem não vaze dos cantos */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+    overflow: hidden; /* Garante que a imagem não vaze */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column; /* Conteúdo empilhado verticalmente */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições para hover */
 }
 
+/*
+ * Efeito de Hover para Cartões de Projeto:
+ * Adiciona um leve deslocamento vertical e intensifica a sombra.
+ */
 .projeto-card:hover {
-    transform: translateY(-8px); /* Efeito de levitação no hover */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Sombra mais forte no hover */
+    transform: translateY(-8px); /* Efeito de levitação */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Sombra mais forte */
 }
 
+/*
+ * Estilo da Imagem do Projeto dentro do Card:
+ * Define largura total, altura fixa e preenchimento da imagem.
+ */
 .projeto-imagem {
     width: 100%;
-    height: 220px; /* Altura fixa para a imagem do projeto */
-    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
-    border-bottom: 1px solid rgba(79, 70, 229, 0.2); /* Linha sutil abaixo da imagem */
+    height: 220px;
+    object-fit: cover; /* Ajusta a imagem para cobrir a área */
+    border-bottom: 1px solid rgba(79, 70, 229, 0.2); /* Linha divisória sutil */
 }
 
+/*
+ * Estilo do Bloco de Informações do Projeto:
+ * Define padding e layout flex.
+ */
 .projeto-info {
     padding: 1.8rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permite que o info ocupe o espaço restante */
+    flex-grow: 1; /* Permite que o bloco ocupe o espaço restante */
 }
 
+/*
+ * Estilo do Título do Projeto no Card:
+ * Define tamanho, cor e margem.
+ */
 .projeto-card-titulo {
     font-size: 2.2rem;
     color: var(--primaria);
@@ -787,45 +1066,66 @@ span {
     font-weight: 700;
 }
 
+/*
+ * Estilo da Descrição do Projeto no Card:
+ * Define tamanho, cor, altura da linha e permite que o texto cresça.
+ */
 .projeto-card-descricao {
     font-size: 1.4rem;
     color: var(--claro);
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Permite que a descrição ocupe o máximo de espaço */
+    flex-grow: 1; /* Permite que a descrição ocupe o máximo de espaço disponível */
 }
 
-/* Ícones de tecnologias */
+/*
+ * Estilo para a Seção de Ícones de Tecnologias em Projetos:
+ * Organiza os ícones usando flexbox.
+ */
 .projeto-tecnologias {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem; /* Espaçamento entre os ícones */
-    margin-top: 1rem; /* Espaçamento acima dos ícones */
-    margin-bottom: 2rem; /* Espaçamento abaixo dos ícones e antes dos botões */
+    gap: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     justify-content: flex-start; /* Alinha os ícones à esquerda */
 }
 
+/*
+ * Estilo dos Ícones de Tecnologia em Projetos:
+ * Define tamanho e cor.
+ */
 .projeto-tech-icon {
-    font-size: 2.5rem; /* Tamanho dos ícones de tecnologia */
-    color: var(--secundaria); /* Cor dos ícones */
+    font-size: 2.5rem;
+    color: var(--secundaria);
 }
-/* Ajuste de cor para Devicon para garantir que sigam sua cor de destaque */
+/*
+ * Ajuste de Cor para Ícones Devicon em Projetos:
+ * Garante que os ícones Devicon, que podem ter cores padrão, sigam a cor secundária do tema.
+ */
 .devicon-postgresql-plain.colored.projeto-tech-icon,
 .devicon-mongodb-plain.colored.projeto-tech-icon,
 .devicon-kubernetes-plain.colored.projeto-tech-icon,
 .devicon-spring-plain.colored.projeto-tech-icon,
-.devicon-mysql-plain.colored.projeto-tech-icon { /* Adicionei MySQL aqui também para consistência */
-    color: var(--secundaria) !important; /* !important para sobrescrever a cor padrão 'colored' */
+.devicon-mysql-plain.colored.projeto-tech-icon {
+    color: var(--secundaria) !important; /* Força a cor secundária */
 }
 
 
-/* Botões do projeto */
+/*
+ * Estilo para o Contêiner dos Botões de Ação do Projeto:
+ * Organiza os botões usando flexbox e os empurra para o final do card.
+ */
 .projeto-botoes {
     display: flex;
-    gap: 1rem; /* Espaçamento entre os botões */
-    margin-top: auto; /* Empurra os botões para o final do card */
+    gap: 1rem;
+    margin-top: auto; /* Empurra os botões para a parte inferior do card */
 }
 
+/*
+ * Estilo Base para os Botões de Projeto:
+ * Define padding, bordas arredondadas, tamanho da fonte, peso e transição.
+ */
 .btn-projeto {
     display: inline-block;
     padding: 0.8rem 1.5rem;
@@ -834,21 +1134,33 @@ span {
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Evita que o texto quebre */
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
 }
 
+/*
+ * Estilo para o Botão "Mais Detalhes":
+ * Fundo transparente com borda primária.
+ */
 .btn-projeto.detalhes {
     background-color: transparent;
     border: 1px solid var(--primaria);
     color: var(--primaria);
 }
 
+/*
+ * Efeito de Hover para o Botão "Mais Detalhes":
+ * Altera o fundo, cor do texto e adiciona sombra.
+ */
 .btn-projeto.detalhes:hover {
     background-color: var(--primaria);
     color: var(--claro);
     box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
 }
 
+/*
+ * Estilo para o Botão "Ver Projeto":
+ * Fundo secundário com borda e sombra.
+ */
 .btn-projeto.ver-projeto {
     background-color: var(--secundaria);
     border: 1px solid var(--secundaria);
@@ -856,15 +1168,22 @@ span {
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
 }
 
+/*
+ * Efeito de Hover para o Botão "Ver Projeto":
+ * Altera o tom de fundo e intensifica a sombra.
+ */
 .btn-projeto.ver-projeto:hover {
     background-color: #6a34cc; /* Tom ligeiramente mais escuro do violeta */
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
 }
 
-/* --- Responsividade da Seção Projetos --- */
+/*
+ * Responsividade da Seção Projetos:
+ * Ajusta a grade de cards, tamanhos de imagens, textos e botões em diferentes breakpoints.
+ */
 @media (max-width: 992px) {
     .projetos-conteudo {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta o tamanho mínimo do card */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2.5rem;
         padding: 0 1.5rem;
     }
@@ -918,7 +1237,7 @@ span {
         padding: 0 0.5rem;
     }
     .projeto-card {
-        margin: 0; /* Remove margem extra */
+        margin: 0;
     }
     .projeto-imagem {
         height: 150px;
@@ -938,37 +1257,47 @@ span {
         gap: 0.8rem;
     }
     .btn-projeto {
-        width: 100%; /* Botões ocupam largura total */
+        width: 100%; /* Ocupa largura total */
         font-size: 1rem;
         padding: 0.8rem 1rem;
     }
 }
 
-/* --- Modal (Tela de Detalhes do Projeto) --- */
+/*
+ * Modal (Tela de Detalhes do Projeto):
+ * Estilos para o modal pop-up que exibe informações detalhadas de um projeto.
+ */
 .modal {
-    /* Use visibility e opacity para uma transição suave */
-    display: flex; /* Mantém flex para centralização */
-    position: fixed;
-    z-index: 2000;
+    display: flex; /* Utiliza flexbox para centralizar o conteúdo */
+    position: fixed; /* Fixa o modal na viewport */
+    z-index: 2000; /* Garante que o modal esteja sobre todos os outros elementos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    opacity: 0; /* Começa invisível */
-    visibility: hidden; /* Escondido e não interage com eventos */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    overflow: auto; /* Permite scroll se o conteúdo for grande */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    opacity: 0; /* Começa invisível para transição */
+    visibility: hidden; /* Escondido e não interage com eventos de mouse */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Transição suave para aparecer/desaparecer */
 }
 
+/*
+ * Estado Ativo do Modal:
+ * Torna o modal visível quando a classe 'active' é aplicada (via JavaScript).
+ */
 .modal.active {
-    opacity: 1; /* Torna visível */
+    opacity: 1;
     visibility: visible;
 }
 
+/*
+ * Conteúdo do Modal:
+ * Estiliza o contêiner interno do modal com fundo, padding, bordas arredondadas e sombra.
+ */
 .modal-content {
     background-color: #1a2233;
     margin: auto;
@@ -977,39 +1306,59 @@ span {
     max-width: 800px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     position: relative;
-    transform: translateY(20px); /* Começa ligeiramente para baixo */
-    transition: transform 0.3s ease-in-out;
-    border: 1px solid rgba(79, 70, 229, 0.3);
+    transform: translateY(20px); /* Começa ligeiramente abaixo para animação */
+    transition: transform 0.3s ease-in-out; /* Animação de entrada */
+    border: 1px solid rgba(79, 70, 229, 0.3); /* Borda sutil */
 }
 
+/*
+ * Animação de Entrada do Conteúdo do Modal:
+ * Move o conteúdo para a posição final quando o modal está ativo.
+ */
 .modal.active .modal-content {
-    transform: translateY(0); /* Sobe para a posição final */
+    transform: translateY(0);
 }
 
+/*
+ * Botão para Fechar o Modal:
+ * Estiliza o ícone de fechar.
+ */
 .fechar-modal {
     color: var(--claro);
     font-size: 3rem;
     position: absolute;
-    top: 0.5rem;
+    top: 0.2rem;
     right: 1.5rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transição suave para o hover */
 }
 
+/*
+ * Efeito de Hover/Foco para o Botão de Fechar Modal.
+ */
 .fechar-modal:hover,
 .fechar-modal:focus {
     color: var(--primaria);
 }
 
+/*
+ * Imagem do Projeto no Modal:
+ * Estiliza a imagem do projeto exibida no modal.
+ */
 .modal-imagem {
     width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 0.8rem;
+    margin-top: 10px;
     margin-bottom: 2rem;
-    border: 2px solid var(--secundaria);
+    border: 2px solid var(--secundaria); /* Borda secundária */
 }
 
+/*
+ * Título do Projeto no Modal:
+ * Estiliza o título do projeto.
+ */
 .modal-titulo {
     font-size: 2.8rem;
     color: var(--primaria);
@@ -1018,6 +1367,10 @@ span {
     font-weight: 700;
 }
 
+/*
+ * Tecnologias Listadas no Modal:
+ * Organiza e estiliza os ícones de tecnologia no modal.
+ */
 .modal-tecnologias {
     display: flex;
     flex-wrap: wrap;
@@ -1025,26 +1378,41 @@ span {
     gap: 1rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2); /* Linha divisória */
 }
 
+/*
+ * Tamanho dos Ícones de Tecnologia no Modal.
+ */
 .modal-tecnologias .projeto-tech-icon {
     font-size: 3rem;
 }
 
+/*
+ * Descrição Longa do Projeto no Modal:
+ * Estiliza o texto descritivo.
+ */
 .modal-descricao-longa {
     font-size: 1.5rem;
     color: var(--claro);
     line-height: 1.7;
     margin-bottom: 2rem;
-    text-align: justify;
+    text-align: justify; /* Justifica o texto para melhor leitura */
 }
 
+/*
+ * Contêiner dos Links de Ação no Modal:
+ * Centraliza os botões no modal.
+ */
 .modal-links {
     display: flex;
     justify-content: center;
 }
 
+/*
+ * Estilo do Botão no Modal:
+ * Estilo principal para botões de ação dentro do modal.
+ */
 .btn-modal {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -1058,12 +1426,19 @@ span {
     box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
 }
 
+/*
+ * Efeito de Hover para o Botão no Modal:
+ * Altera o tom de fundo e intensifica a sombra.
+ */
 .btn-modal:hover {
     background-color: #6a34cc;
     box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
 }
 
-/* --- Responsividade da Modal --- */
+/*
+ * Responsividade da Modal:
+ * Ajusta paddings, tamanhos de fonte e elementos em diferentes breakpoints.
+ */
 @media (max-width: 768px) {
     .modal-content {
         max-width: 90%;
@@ -1071,11 +1446,12 @@ span {
     }
     .fechar-modal {
         font-size: 2.5rem;
-        top: 0.3rem;
+        top: 0.2rem;
         right: 1rem;
     }
     .modal-imagem {
         height: 180px;
+        margin-top: 15px;
         margin-bottom: 1.5rem;
     }
     .modal-titulo {
@@ -1127,65 +1503,92 @@ span {
     }
 }
 
-/* Serviços */
+/*
+ * Seção de Serviços:
+ * Estilos para a seção que lista os serviços oferecidos.
+ */
 .servicos-conteudo {
     display: grid;
+    /* Colunas responsivas: no mínimo 280px, com preenchimento automático. */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; /* Espaçamento entre os cards */
+    gap: 2rem;
     padding: 0 1.5rem;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+/*
+ * Estilo de cada Cartão de Serviço:
+ * Define fundo, padding, bordas arredondadas, sombra, borda sutil e layout flex para centralização.
+ */
 .servico {
-    background: #1a2233; /* Fundo escuro similar aos cards de skill e projeto */
-    padding: 2.5rem; /* Aumentado o padding */
+    background: #1a2233;
+    padding: 2.5rem;
     border-radius: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     text-align: center;
-    border: 1px solid rgba(124, 58, 237, 0.3); /* Borda sutil */
-    min-height: 280px; /* Garante uma altura mínima para todos os cards */
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    min-height: 280px; /* Garante altura mínima para uniformidade */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza conteúdo verticalmente */
+    align-items: center; /* Centraliza conteúdo horizontalmente */
 }
 
+/*
+ * Efeito de Hover para Cartões de Serviço:
+ * Adiciona um leve deslocamento vertical e intensifica a sombra.
+ */
 .servico:hover {
-    transform: translateY(-8px); /* Efeito de levitação no hover */
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4); /* Sombra mais forte no hover */
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
 }
 
-/* Novo estilo para os Ícones de Serviço */
+/*
+ * Estilo dos Ícones de Serviço:
+ * Define tamanho, cor e sombra para destaque.
+ */
 .servicos-icon {
-    font-size: 5rem; /* Tamanho do ícone (aumentado para destaque) */
-    color: var(--secundaria); /* Cor do ícone */
-    margin-bottom: 1.5rem; /* Espaço abaixo do ícone */
-    display: block; /* Garante que o ícone seja um bloco para centralização */
+    font-size: 5rem;
+    color: var(--secundaria);
+    margin-bottom: 1.5rem;
+    display: block; /* Garante que o ícone ocupe sua própria linha para centralização */
     filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5)); /* Sombra para o ícone */
 }
 
-/* Remova ou comente a regra antiga de imagem de serviço */
+/*
+ * Remove a regra de estilo para a imagem de serviço antiga (se não for mais usada).
+ */
 .servicos-imagem {
-    display: none; /* Esconde a imagem antiga */
-    /* Ou remova completamente esta regra se não for mais necessária */
+    display: none;
 }
 
+/*
+ * Estilo do Título do Serviço no Card:
+ * Define tamanho, cor e peso da fonte.
+ */
 .servicos-titulo {
     font-size: 2.2rem;
-    color: var(--primaria); /* Mudei para primaria para dar contraste */
+    color: var(--primaria); /* Cor primária para contraste */
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
+/*
+ * Estilo da Descrição do Serviço no Card:
+ * Define tamanho, cor e altura da linha.
+ */
 .servicos-descricao {
     font-size: 1.4rem;
     color: var(--claro);
     line-height: 1.6;
 }
 
-/* --- Responsividade da Seção Serviços --- */
+/*
+ * Responsividade da Seção Serviços:
+ * Ajusta o layout da grade e os tamanhos de fonte em diferentes breakpoints.
+ */
 @media (max-width: 992px) {
     .servicos-conteudo {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1216,7 +1619,7 @@ span {
     }
     .servico {
         padding: 1.8rem;
-        min-height: auto; /* Deixa a altura se ajustar ao conteúdo */
+        min-height: auto; /* Altura se ajusta ao conteúdo */
     }
     .servicos-icon {
         font-size: 3.5rem;
@@ -1245,26 +1648,41 @@ span {
     }
 }
 
-/* Contatos */
+/*
+ * Seção de Contatos:
+ * Estilos para a seção de informações de contato.
+ */
 .contatos-conteudo {
     max-width: 750px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centraliza o conteúdo */
     text-align: center;
 }
 
+/*
+ * Estilo do Texto Introdutório de Contatos:
+ * Define tamanho da fonte, margem inferior e altura da linha.
+ */
 .contatos-texto {
     font-size: 1.6rem;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
+/*
+ * Contêiner dos Links de Mídias Sociais em Contatos:
+ * Organiza os links usando flexbox e permite quebrar em várias linhas.
+ */
 .contatos-sociais {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centraliza os links */
     flex-wrap: wrap;
     gap: 1.8rem;
 }
 
+/*
+ * Estilo de cada Link de Contato (Texto e Ícone):
+ * Define layout flex para alinhamento, cor, tamanho da fonte e transições.
+ */
 .contato-link {
     display: inline-flex;
     align-items: center;
@@ -1272,54 +1690,81 @@ span {
     color: var(--primaria);
     font-size: 1.6rem;
     font-weight: bold;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s, transform 0.3s; /* Transições para hover */
 }
 
+/*
+ * Estilo do Ícone dentro do Link de Contato:
+ * Define tamanho e cor.
+ */
 .contato-link i {
     font-size: 2.2rem;
     color: var(--primaria);
 }
 
+/*
+ * Efeito de Hover para Links de Contato:
+ * Altera a cor e adiciona um leve deslocamento vertical.
+ */
 .contato-link:hover {
     color: var(--secundaria);
     transform: translateY(-3px);
 }
 
+/*
+ * Efeito de Hover para o Ícone dentro do Link de Contato:
+ * Altera a cor do ícone.
+ */
 .contato-link:hover i {
     color: var(--secundaria);
 }
 
 
-/* Rodapé */
+/*
+ * Rodapé:
+ * Estilos para a seção de rodapé da página.
+ */
 .rodape {
     text-align: center;
     padding: 2rem;
     background: var(--escuro);
-    border-top: 1px solid var(--vidro);
-    margin-top: -5rem;
+    border-top: 1px solid var(--vidro); /* Borda superior com efeito de vidro */
+    margin-top: -5rem; /* Ajusta a margem superior para sobrepor levemente a seção anterior */
     font-size: 1.3rem;
     color: var(--claro);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3); /* Sombra superior */
 }
 
-/* Responsivo */
+/*
+ * Responsividade Geral:
+ * Ajustes de tamanho de fonte base e layout para diferentes tamanhos de tela.
+ */
 @media (max-width: 992px) {
     html {
-        font-size: 80%;
+        font-size: 80%; /* Reduz o tamanho da fonte base para telas maiores de tablet */
     }
 
+    /*
+     * Ajuste do Layout do Cabeçalho para Coluna em Telas Menores:
+     * Altera a direção do flexbox para empilhar imagem e texto verticalmente.
+     */
     .cabecalho {
-        /* Volta para coluna em telas menores para melhor visualização */
         flex-direction: column;
         text-align: center;
         gap: 3rem;
     }
 
+    /*
+     * Centraliza a imagem e o conteúdo de apresentação quando em layout de coluna.
+     */
     .cabecalho .home-img,
     .cabecalho .conteudo-apresentacao {
-        margin: 0 auto; /* Centraliza ambos os itens em coluna */
+        margin: 0 auto;
     }
 
+    /*
+     * Centraliza mídias sociais e botão.
+     */
     .social-media, .btn {
         justify-content: center;
     }
@@ -1353,19 +1798,23 @@ span {
         height: 300px;
     }
 
+    /* A classe 'skills-lista' não está presente no HTML fornecido, então este bloco pode ser removido ou ajustado. */
     .skills-lista li {
         font-size: 1.3rem;
         padding: 0.7rem 1.5rem;
     }
 
+    /* Ajusta a grade de projetos e serviços para telas menores. */
     .projetos-conteudo, .servicos-conteudo {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
+    /* Ajusta o tamanho da fonte dos títulos de seção. */
     .skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
         font-size: 2.8rem;
     }
 
+    /* Empilha os links de contatos verticalmente. */
     .contatos-sociais {
         flex-direction: column;
         gap: 1.2rem;
@@ -1374,7 +1823,7 @@ span {
 
 @media (max-width: 480px) {
     html {
-        font-size: 70%;
+        font-size: 70%; /* Reduz ainda mais o tamanho da fonte base */
     }
 
     .cabecalho h1 {
@@ -1406,12 +1855,16 @@ span {
     }
 }
 
+/*
+ * Ajustes Específicos para Telas Menores que 768px:
+ * Detalhes de responsividade para diversos elementos de texto e componentes.
+ */
 @media(max-width: 768px){
     .conteudo-apresentacao p{
-        font-size: 1.6rem; /* Ajusta o tamanho do texto para telas menores */
+        font-size: 1.6rem;
     }
     .sobre .sobre-texto{
-        font-size: 1.6rem; /* Ajusta o tamanho do texto para telas menores */
+        font-size: 1.6rem;
     }
     .sobre .tag{
         font-size: 1.4rem

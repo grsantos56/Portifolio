@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
+        <!--menu superior-->
         <header class="header">
             <div class="logo">Gabriel Rodrigues</div>
             <nav class="navbar">
@@ -24,9 +25,10 @@
             </nav>
         </header>
 
+        <!--apresentação-->
         <main id="inicio" class="cabecalho">
             <div class="home-img animate__animated animate__zoomIn">
-                <img src="img/one piecee.png" alt="foto de perfil" />
+                <img src="img/perfil.png" alt="foto de perfil" />
             </div>
 
             <div class="conteudo-apresentacao">
@@ -49,7 +51,8 @@
             </div>
         </main>
 
-       <section class="sobre" id="sobre">
+        <!--sobre mim-->
+        <section class="sobre" id="sobre">
             <h2 class="sobre-titulo-personalizado-fora-quadro animate__animated animate__fadeInUp">Sobre</h2>
             <div class="sobre-quadro animate__animated animate__zoomIn">
                 <h2 class="sobre-titulo-personalizado">Muito prazer, <span class="sobre-titulo-destaque">eu sou Gabriel!</span></h2>
@@ -72,6 +75,7 @@
             </div>
         </section>
 
+        <!--conhecimentos e habilidades-->
         <section id="skills" class="skills">
             <h2 class="skills-titulo animate__animated animate__fadeInUp">Skills</h2>
 
@@ -93,33 +97,6 @@
                         <span class="skill-percentage">80%</span>
                         <div class="progress-bar-container">
                             <div class="progress-bar" style="width: 80%;"></div>
-                        </div>
-                        <p class="skill-description">Proficiência</p>
-                    </div>
-                </div>
-
-                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
-                    <div class="skill-header">
-                        <i class='bx bxl-django skill-icon'></i>
-                        <h3 class="skill-name">Django</h3>
-                    </div>
-                    <div class="skill-details">
-                        <span class="skill-percentage">70%</span>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 70%;"></div>
-                        </div>
-                        <p class="skill-description">Proficiência</p>
-                    </div>
-                </div>
-
-                <div class="skill-card animate__animated animate__zoomIn" data-categorias="backend">
-                    <div class="skill-header">
-                        <i class='bx bx-plus-circle skill-icon'></i> <h3 class="skill-name">REST APIs</h3>
-                    </div>
-                    <div class="skill-details">
-                        <span class="skill-percentage">95%</span>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 95%;"></div>
                         </div>
                         <p class="skill-description">Proficiência</p>
                     </div>
@@ -248,7 +225,7 @@
                     </div>
                 </div>
 
-                </div>
+            </div>
 
             <h3 class="skills-subtitulo animate__animated animate__fadeInUp">Habilidades adicionais</h3>
             <div class="habilidades-adicionais animate__animated animate__fadeInUp animate__delay-0-5s">
@@ -259,21 +236,22 @@
                 <span class="extra-tag">CI/CD</span>
                 <span class="extra-tag">Agile</span>
                 <span class="extra-tag">Microservices</span>
+                <span class="extra-tag">Rest API</span>
                 <span class="extra-tag">Linux</span>
-                
-                </div>
+            </div>
         </section>
 
+        <!--projetos-->
         <section id="projetos" class="projetos">
             <h2 class="projetos-titulo animate__animated animate__fadeInUp">Projetos</h2>
             <div class="projetos-conteudo">
 
                 <div class="projeto-card animate__animated animate__fadeInUp">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto: Workshop Spring Boot" class="projeto-imagem">
+                    <img src="img/workshop.png" alt="Imagem do Projeto: Workshop Spring Boot" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Workshop: APIs com Spring Boot</h3>
                         <p class="projeto-card-descricao">Um projeto prático que simula um workshop de desenvolvimento de APIs RESTful usando Spring Boot. Abrange desde a configuração inicial até a implementação de endpoints e persistência de dados. Ideal para quem busca aprofundar conhecimentos em backend Java.</p>
-                        
+
                         <div class="projeto-tecnologias">
                             <i class='bx bxl-java projeto-tech-icon' title="Java"></i>
                             <i class='devicon-spring-plain colored projeto-tech-icon' title="Spring Boot"></i>
@@ -289,11 +267,11 @@
                 </div>
 
                 <div class="projeto-card animate__animated animate__fadeInUp">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto: Instalador Linux" class="projeto-imagem">
+                    <img src="img/gerenciador de pacotes.png" alt="Imagem do Projeto: Instalador Linux" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Instalador de Aplicativos Linux</h3>
                         <p class="projeto-card-descricao">Um script ou pequeno programa para automatizar a instalação e configuração de softwares comuns em distribuições Linux (e.g., Ubuntu, Fedora). Otimiza o processo de setup de novas máquinas e garante consistência entre ambientes.</p>
-                        
+
                         <div class="projeto-tecnologias">
                             <i class='bx bxl-python projeto-tech-icon' title="Python"></i>
                             <i class='bx bxl-linux projeto-tech-icon' title="Linux Scripting"></i>
@@ -309,11 +287,11 @@
                 </div>
 
                 <div class="projeto-card animate__animated animate__fadeInUp">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto: Gerenciador de Tarefas" class="projeto-imagem">
+                    <img src="img/gerenciador de tarefas.png" alt="Imagem do Projeto: Gerenciador de Tarefas" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Gerenciador de Tarefas (Fullstack)</h3>
                         <p class="projeto-card-descricao">Aplicação fullstack para gerenciar tarefas e projetos pessoais ou em equipe. Desenvolvido com Spring Boot no backend para API RESTful e React no frontend para uma interface dinâmica e intuitiva, com persistência de dados.</p>
-                        
+
                         <div class="projeto-tecnologias">
                             <i class='bx bxl-java projeto-tech-icon' title="Java"></i>
                             <i class='devicon-spring-plain colored projeto-tech-icon' title="Spring Boot"></i>
@@ -329,11 +307,11 @@
                 </div>
 
                 <div class="projeto-card animate__animated animate__fadeInUp">
-                    <img src="img/one piecee.png" alt="Imagem do Projeto: Site de Games" class="projeto-imagem">
+                    <img src="img/wikigames.png" alt="Imagem do Projeto: Site de Games" class="projeto-imagem">
                     <div class="projeto-info">
                         <h3 class="projeto-card-titulo">Game Hub: Portal de Descrição de Games</h3>
                         <p class="projeto-card-descricao">Um site interativo para explorar e visualizar detalhes de diversos jogos. Integra-se com APIs de games para buscar informações, como descrições, plataformas, gêneros e avaliações. Frontend focado em responsividade e UX.</p>
-                        
+
                         <div class="projeto-tecnologias">
                             <i class='bx bxl-html5 projeto-tech-icon' title="HTML"></i>
                             <i class='bx bxl-css3 projeto-tech-icon' title="CSS"></i>
@@ -347,7 +325,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </section>
 
@@ -364,6 +342,7 @@
             </div>
         </div>
 
+        <!--serviços oferecidos-->
         <section id="servicos" class="servicos-section">
             <h2 class="servicos-titulo-principal animate__animated animate__fadeInUp">Serviços</h2>
             <div class="servicos-conteudo">
@@ -385,6 +364,7 @@
             </div>
         </section>
 
+        <!--entre em contato-->
         <section id="contatos" class="contatos">
             <h2 class="contatos-titulo animate__animated animate__fadeInUp">Contato</h2>
             <div class="contatos-conteudo animate__animated animate__fadeInUp animate__delay-0-5s">
