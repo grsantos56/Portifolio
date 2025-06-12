@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true
     });
 
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
+
     // --- Scroll Suave para os links da navbar ---
     document.querySelectorAll('.menu-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

@@ -10,17 +10,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
-        <nav class="navbar">
-            
-            <ul class="menu">
-                <li style="color: #7c3aed; font-weight: bold;">Gabriel Rodrigues</li>
-                <li><a href="#inicio" class="menu-link">Início</a></li>
-                <li><a href="#skills" class="menu-link">Skills</a></li>
-                <li><a href="#projetos" class="menu-link">Projetos</a></li>
-                <li><a href="#servicos" class="menu-link">Serviços</a></li>
-                <li><a href="#contatos" class="menu-link">Contato</a></li>
-            </ul>
-        </nav>
+        <header class="header">
+            <div class="logo">Gabriel Rodrigues</div>
+            <nav class="navbar">
+                <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+                <ul class="menu" id="menu">
+                    <li><a href="#inicio" class="menu-link">Início</a></li>
+                    <li><a href="#skills" class="menu-link">Skills</a></li>
+                    <li><a href="#projetos" class="menu-link">Projetos</a></li>
+                    <li><a href="#servicos" class="menu-link">Serviços</a></li>
+                    <li><a href="#contatos" class="menu-link">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
 
         <main id="inicio" class="cabecalho">
             <div class="home-img animate__animated animate__zoomIn">
