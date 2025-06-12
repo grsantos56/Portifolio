@@ -39,7 +39,7 @@ section {
     left: 0;
     width: 100%;
     background: rgba(15, 26, 42, 0.9);
-    padding: 1.5rem 3%;
+    padding: 1.2rem 3%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
@@ -103,14 +103,15 @@ section {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: 60px; /* Mais próximo da barra */
         right: 3%;
         background: rgba(15, 26, 42, 0.95);
         width: 200px;
-        padding: 1rem;
+        padding: 1.2rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        gap: 1.5rem;
+        gap: 1.2rem;
         border-radius: 8px;
+        z-index: 999;
     }
 
     .menu.show {
@@ -119,6 +120,11 @@ section {
 
     .menu-toggle {
         display: block;
+    }
+
+    /* Aumenta o espaço do conteúdo para não colar com a navbar */
+    body {
+        padding-top: 100px;
     }
     
 }
@@ -232,6 +238,38 @@ span {
     50% { transform: translateY(-1.5rem); }
     100% { transform: translateY(0); }
 }
+
+@media (max-width: 768px) {
+  .cabecalho {
+    padding-inline: 1.5rem;
+  }
+
+  .conteudo-apresentacao {
+    text-align: center;
+  }
+
+  .cabecalho h1, 
+  .cabecalho h3, 
+  .cabecalho p {
+    text-align: center;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+  .social-media .btn{
+    text-align: center;
+  }
+
+  a.btn {
+    display: block;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+}
+
 
 /* Títulos das seções */
 .skills-titulo, .projetos-titulo, .contatos-titulo, .servicos-titulo-principal {
