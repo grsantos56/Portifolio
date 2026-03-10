@@ -1,22 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
-  // Configuração de mola para um movimento fluido e elegante
+  const [isMobile, setIsMobile] = useState(false);
   const springConfig = { stiffness: 500, damping: 28 };
-  const cursorX = useSpring(0, springConfig);
-  const cursorY = useSpring(0, springConfig);
+  
+  // Inicializamos fora da tela para evitar o flash no canto (0,0)
+  const cursorX = useSpring(-100, springConfig);
+  const cursorY = useSpring(-100, springConfig);
 
   useEffect(() => {
+    const checkDevice = () => {
+      // Detecta largura da tela ou se o dispositivo é touch primário
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+      setIsMobile(window.innerWidth < 1024 || isTouch);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
     const moveMouse = (e) => {
-      // Centraliza o círculo (24px de largura / 2 = 12px de offset)
-      cursorX.set(e.clientX - 12);
-      cursorY.set(e.clientY - 12);
+      if (!isMobile) {
+        cursorX.set(e.clientX - 12);
+        cursorY.set(e.clientY - 12);
+      }
     };
 
     window.addEventListener("mousemove", moveMouse);
-    return () => window.removeEventListener("mousemove", moveMouse);
-  }, [cursorX, cursorY]);
+    return () => {
+      window.removeEventListener("resize", checkDevice);
+      window.removeEventListener("mousemove", moveMouse);
+    };
+  }, [cursorX, cursorY, isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div
@@ -25,11 +42,9 @@ const CustomCursor = () => {
         translateX: cursorX,
         translateY: cursorY,
         background: "var(--primaria)",
-        // Brilho intenso (Glow) usando a cor do tema
         boxShadow: "0 0 20px var(--primaria), 0 0 10px var(--primaria)",
       }}
       animate={{
-        // Efeito de "Piscar" (Shining/Blinking)
         opacity: [0.4, 1, 0.4],
         scale: [1, 1.15, 1],
       }}
