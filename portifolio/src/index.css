@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --primaria: #7c3aed;
+  --secundaria: #8b5cf6;
+  --bg-escuro: #13111c;
+  --bg-card: #1e1b2e;
+  --text-claro: #f8fafc;
+  --bg-nav: rgba(19, 17, 28, 0.95);
+}
+
+body {
+  background-color: var(--bg-escuro);
+  color: var(--text-claro);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10 e 11 */
+  user-select: none;
+}
+
+/* * Animação de Órbita 3D Perspectiva 
+ * Esta animação move o ícone em uma elipse achatada,
+ * ajustando a escala e o z-index para criar profundidade.
+ */
+@keyframes orbit3D {
+  0% {
+    /* Ponto mais próximo, centralizado, maior e à frente */
+    transform: translate(-50%, -50%) translateX(0px) translateY(var(--orbit-y-radius)) scale(1.1);
+    z-index: 20;
+    opacity: 1;
+  }
+  25% {
+    /* Lado direito, na "borda" da elipse, tamanho normal */
+    transform: translate(-50%, -50%) translateX(var(--orbit-x-radius)) translateY(0px) scale(1);
+    z-index: 10;
+  }
+  50% {
+    /* Ponto mais distante, atrás, menor e ligeiramente transparente */
+    transform: translate(-50%, -50%) translateX(0px) translateY(calc(-1 * var(--orbit-y-radius))) scale(0.8);
+    z-index: 5;
+    opacity: 0.8;
+  }
+  75% {
+    /* Lado esquerdo, na bordinha, tamanho normal */
+    transform: translate(-50%, -50%) translateX(calc(-1 * var(--orbit-x-radius))) translateY(0px) scale(1);
+    z-index: 10;
+  }
+  100% {
+    /* Volta ao início */
+    transform: translate(-50%, -50%) translateX(0px) translateY(var(--orbit-y-radius)) scale(1.1);
+    z-index: 20;
+    opacity: 1;
+  }
+}
+
+.animate-orbit3D {
+  animation: orbit3D var(--orbit-duration) linear infinite;
+  animation-delay: var(--orbit-delay);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1rem); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Garante que o clique no link da Navbar desça suavemente */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste global para as seções (reduzindo de pt-40 para pt-24 ou pt-28) */
+section {
+  scroll-margin-top: 80px; /* Evita que o título da seção fique colado na Navbar */
+}
+
+html, body, a, button {
+  cursor: none !important;
+}
