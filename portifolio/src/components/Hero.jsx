@@ -137,7 +137,7 @@ const Hero = () => {
             onClick={() => setModalOpen(true)}
           >
             <img 
-              src="img/perfil.png" 
+              src="https://res.cloudinary.com/dpkfluxse/image/upload/v1773161746/perfil_kcrnxm.png" 
               alt="perfil" 
               className="w-[240px] h-[240px] md:w-[350px] md:h-[350px] object-cover rounded-full border-[4px] border-[color:var(--primaria)] shadow-[0_0_20px_var(--primaria)] animate-float transition-all duration-500 group-hover:scale-105" 
             />
