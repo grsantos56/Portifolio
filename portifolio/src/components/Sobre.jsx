@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { 
   FaCode, FaServer, FaMobileAlt, FaTools, FaMicrochip, FaShieldAlt, FaTimes,

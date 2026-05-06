@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaJava, FaNodeJs, FaReact, FaJs, FaGitAlt, FaShieldAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { SiSpringboot } from 'react-icons/si';

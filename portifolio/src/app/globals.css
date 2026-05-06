@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primaria: var(--primaria);
+  --color-secundaria: var(--secundaria);
+  --color-escuro: var(--bg-escuro);
+  --color-card: var(--bg-card);
+  --color-claro: var(--text-claro);
+  --color-nav: var(--bg-nav);
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-orbit: orbit 25s linear infinite;
+  --animate-orbit3D: orbit3D var(--orbit-duration) linear infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-1.5rem); }
+  }
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+  }
+  @keyframes orbit3D {
+    0% {
+      transform: translate(-50%, -50%) translateX(0px) translateY(var(--orbit-y-radius)) scale(1.1);
+      z-index: 20;
+      opacity: 1;
+    }
+    25% {
+      transform: translate(-50%, -50%) translateX(var(--orbit-x-radius)) translateY(0px) scale(1);
+      z-index: 10;
+    }
+    50% {
+      transform: translate(-50%, -50%) translateX(0px) translateY(calc(-1 * var(--orbit-y-radius))) scale(0.8);
+      z-index: 5;
+      opacity: 0.8;
+    }
+    75% {
+      transform: translate(-50%, -50%) translateX(calc(-1 * var(--orbit-x-radius))) translateY(0px) scale(1);
+      z-index: 10;
+    }
+    100% {
+      transform: translate(-50%, -50%) translateX(0px) translateY(var(--orbit-y-radius)) scale(1.1);
+      z-index: 20;
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  --primaria: #7c3aed;
+  --secundaria: #8b5cf6;
+  --bg-escuro: #13111c;
+  --bg-card: #1e1b2e;
+  --text-claro: #f8fafc;
+  --bg-nav: rgba(19, 17, 28, 0.95);
+}
+
+body {
+  background-color: var(--bg-escuro);
+  color: var(--text-claro);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10 e 11 */
+  user-select: none;
+}
+
+.animate-orbit3D {
+  animation: orbit3D var(--orbit-duration) linear infinite;
+  animation-delay: var(--orbit-delay);
+}
+
+/* Garante que o clique no link da Navbar desça suavemente */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste global para as seções */
+section {
+  scroll-margin-top: 80px; 
+}
+
+html, body, a, button {
+  cursor: none !important;
+}

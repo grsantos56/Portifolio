@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { FaCode, FaCloudUploadAlt, FaMobileAlt, FaPalette } from 'react-icons/fa';
 import Reveal from './Reveal';

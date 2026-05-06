@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaInstagram, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 import Reveal from './Reveal';

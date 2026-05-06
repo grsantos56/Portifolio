@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { ReactTyped } from "react-typed";
 import { 
@@ -8,7 +9,7 @@ import {
 import { 
   SiSpringboot, SiTailwindcss, SiMysql, SiPostgresql, 
   SiMongodb, SiKubernetes, SiJenkins, SiPostman, SiSwagger, SiGooglecloud, 
-  SiJunit5
+  SiJunit5, SiRedis, SiNextdotjs, SiTypescript
 } from 'react-icons/si';
 
 import Reveal from './Reveal';
@@ -50,6 +51,9 @@ const todasTechs = [
   { icon: FaDocker, name: 'Docker', cat: 'devops', color: 'text-[#2496ED]' },
   { icon: SiKubernetes, name: 'Kubernetes', cat: 'devops', color: 'text-[#326CE5]' },
   { icon: SiJenkins, name: 'Jenkins', cat: 'devops', color: 'text-[#D24939]' },
+  { icon: SiNextdotjs, name: 'Next.js', cat: 'frontend', color: 'text-[#ffffff]' },
+  { icon: SiTypescript, name: 'TypeScript', cat: 'frontend', color: 'text-[#3178C6]' },
+  { icon: SiRedis, name: 'Redis', cat: 'backend', color: 'text-[#DC382D]' },
   { icon: FaLinux, name: 'Linux', cat: 'devops', color: 'text-[#FCC624]' },
 ];
 
@@ -59,7 +63,14 @@ const Hero = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [filtro, setFiltro] = useState('todos');
 
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+  
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // call initially
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const duration = 25; // Aumentado para um movimento mais suave com 9 ícones
 
   const techsFiltradas = filtro === 'todos' 

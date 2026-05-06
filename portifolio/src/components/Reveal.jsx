@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 
 const Reveal = ({ children, delay = 0 }) => {
